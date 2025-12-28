@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Adel Baselizadeh</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Optional: Google Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Optional: Font Awesome icons -->
+    <!-- Font Awesome icons -->
     <script
       src="https://kit.fontawesome.com/fa62c117c7.js"
       crossorigin="anonymous"
     ></script>
+
     <style>
       /* Theme variables */
       body.dark {
@@ -39,7 +40,7 @@
         color: var(--text-color);
       }
 
-      /* Apply colors */
+      /* Apply colors to links and buttons */
       a, .link {
         color: var(--link-color);
       }
@@ -56,13 +57,26 @@
         position: fixed;
         top: 1rem;
         right: 1rem;
-        z-index: 1000;
+        z-index: 10000;
+        background-color: var(--btn-bg);
+        color: var(--btn-text);
+        border: none;
+        padding: 0.5rem 0.7rem;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+
+      #theme-toggle:hover {
+        opacity: 0.8;
       }
     </style>
   </head>
+
   <body class="dark" id="top">
-    <!-- Theme toggle button -->
-    <button type="button" aria-label="toggle theme" class="btn btn--icon" id="theme-toggle">
+
+    <!-- Theme toggle button always on top-right -->
+    <button type="button" aria-label="toggle theme" id="theme-toggle">
       <i aria-hidden="true" class="fas fa-sun" id="theme-icon"></i>
     </button>
 
