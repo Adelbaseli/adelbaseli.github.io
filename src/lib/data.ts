@@ -4,7 +4,7 @@ export const personalInfo = {
   email: "adelb@uio.no",
   github: "https://github.com/Adelbaseli",
   linkedin: "https://www.linkedin.com/in/adel-baselizadeh-779719b1/",
-  profilePicture: "/profile_photo.jpeg",
+  profilePicture: "/profile_photo_updated.jpeg",
   heroDescription:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 };
