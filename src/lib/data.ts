@@ -6,7 +6,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/adel-baselizadeh-779719b1/",
   profilePicture: "/profile_photo_updated.jpeg",
   heroDescription:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "AI/ML researcher and engineer working on multimodal sensing and robot perception at RITMO, University of Oslo. PhD in computer science, background spanning mechanical engineering to deep learning. I build systems that combine vision, LiDAR, and sensor fusion with learning-based control — currently working on integrating VLMs and LLMs into real-time robot navigation.",
 };
 
 export const workExperience = [
