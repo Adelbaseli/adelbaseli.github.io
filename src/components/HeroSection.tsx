@@ -37,7 +37,7 @@ export default function HeroSection() {
         >
           <div className="text-center md:text-left">
             <motion.h1
-              className="text-4xl font-bold mb-2"
+              className="text-5xl md:text-6xl font-bold mb-2"
               variants={childVariants}
             >
               {personalInfo.name}{" "}
@@ -45,7 +45,7 @@ export default function HeroSection() {
             </motion.h1>
 
             <motion.p
-              className="text-xl text-muted-foreground mb-6"
+              className="text-2xl md:text-3xl text-muted-foreground mb-6"
               variants={childVariants}
             >
               Data Scientist & AI/ML Engineer 👨‍💻
@@ -111,7 +111,7 @@ export default function HeroSection() {
               <img
                 src={personalInfo.profilePicture}
                 alt="Profile"
-                className="w-48 md:w-60 rounded-full relative ring-2 ring-purple-500/50"
+                className="w-56 md:w-72 rounded-full relative ring-2 ring-purple-500/50"
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -120,7 +120,7 @@ export default function HeroSection() {
 
         <MotionWrapper>
           <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm backdrop-filter p-4 rounded-lg border border-purple-500/20 dark:border-purple-500/10 shadow-sm">
-            <p className="text-muted-foreground pl-4 py-2 mb-4 relative">
+            <p className="text-muted-foreground text-lg pl-4 py-2 mb-4 relative">
               <span className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></span>
               {personalInfo.heroDescription}
             </p>
