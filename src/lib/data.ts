@@ -80,56 +80,75 @@ export const education = [
   },
 ];
 
+import {
+  SiPython,
+  SiCplusplus,
+  SiSqlite,
+  SiR,
+  SiPytorch,
+  SiTensorflow,
+  SiScikitlearn,
+  SiOpencv,
+  SiPandas,
+  SiNumpy,
+  SiDocker,
+  SiGithub,
+  SiAmazon,
+  SiMicrosoftazure,
+} from "react-icons/si";
+
+import {
+  FaBrain,
+  FaRobot,
+  FaChartLine,
+  FaEye,
+  FaWaveSquare,
+  FaCloud,
+} from "react-icons/fa";
+
 export const skills = {
-  AIandMachineLearning: [
-    { name: "Machine Learning", icon: "..." },
-    { name: "Deep Learning", icon: "..." },
-    { name: "Multimodal Learning", icon: "..." },
-    { name: "Computer Vision", icon: "..." },
-    { name: "Time-Series Analysis", icon: "..." },
-    { name: "Large Language Models (LLMs)", icon: "..." },
-    { name: "Vision Language Models (VLMs)", icon: "..." },
-    { name: "Agentic AI", icon: "..." },
-  ],
-
-  DataAndSignalProcessing: [
-    { name: "Sensor Fusion", icon: "..." },
-    { name: "Audio Processing", icon: "..." },
-    { name: "Signal Processing", icon: "..." },
-    { name: "Human Activity Recognition", icon: "..." },
-    { name: "Data Analysis", icon: "..." },
-  ],
-
-  FrameworksAndLibraries: [
-    { name: "PyTorch", icon: "..." },
-    { name: "TensorFlow", icon: "..." },
-    { name: "Scikit-learn", icon: "..." },
-    { name: "Pandas", icon: "..." },
-    { name: "NumPy", icon: "..." },
-    { name: "OpenCV", icon: "..." },
-  ],
-
-  RoboticsAndSystems: [
-    { name: "ROS / ROS2", icon: "..." },
-    { name: "Robot Learning", icon: "..." },
-    { name: "Robotics", icon: "..." },
-    { name: "Docker", icon: "..." },
-    { name: "Apptainer / Singularity", icon: "..." },
-  ],
-
   Programming: [
-    { name: "Python", icon: "..." },
-    { name: "C++", icon: "..." },
-    { name: "SQL", icon: "..." },
-    { name: "MATLAB", icon: "..." },
-    { name: "Git", icon: "..." },
+    { name: "Python", icon: SiPython },
+    { name: "C++", icon: SiCplusplus },
+    { name: "SQL", icon: SiSqlite },
+    { name: "MATLAB", icon: FaChartLine },
+    { name: "R", icon: SiR },
   ],
 
-  CloudAndMLOps: [
-    { name: "MLflow", icon: "..." },
-    { name: "CI/CD", icon: "..." },
-    { name: "Microsoft Azure", icon: "..." },
-    { name: "AWS", icon: "..." },
+  "AI & Machine Learning": [
+    { name: "Machine Learning", icon: FaBrain },
+    { name: "Deep Learning", icon: FaBrain },
+    { name: "Multimodal Learning", icon: FaBrain },
+    { name: "Computer Vision", icon: FaEye },
+    { name: "Time-Series Analysis", icon: FaChartLine },
+    { name: "LLMs", icon: FaBrain },
+    { name: "VLMs", icon: FaBrain },
+    { name: "Agentic AI", icon: FaRobot },
+  ],
+
+  "Frameworks & Libraries": [
+    { name: "PyTorch", icon: SiPytorch },
+    { name: "TensorFlow", icon: SiTensorflow },
+    { name: "Scikit-learn", icon: SiScikitlearn },
+    { name: "OpenCV", icon: SiOpencv },
+    { name: "Pandas", icon: SiPandas },
+    { name: "NumPy", icon: SiNumpy },
+  ],
+
+  "Robotics & Systems": [
+    { name: "ROS / ROS2", icon: FaRobot },
+    { name: "Sensor Fusion", icon: FaWaveSquare },
+    { name: "Docker", icon: SiDocker },
+    { name: "Apptainer", icon: FaCloud },
+    { name: "Singularity", icon: FaCloud },
+  ],
+
+  "Cloud & MLOps": [
+    { name: "AWS", icon: SiAmazon },
+    { name: "Microsoft Azure", icon: SiMicrosoftazure },
+    { name: "MLflow", icon: FaCloud },
+    { name: "CI/CD", icon: FaCloud },
+    { name: "Git", icon: SiGithub },
   ],
 };
 
