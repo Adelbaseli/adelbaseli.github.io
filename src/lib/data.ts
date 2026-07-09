@@ -82,7 +82,7 @@ export const education = [
 
 export const skills = {
   programmingLanguages: ["Python", "C++", "SQL", "MATLAB", "R"],
-  AI: [
+  frontendDevelopment: [
     "Machine Learning",
     "Deep Learning",
     "Multimodal DL (RNNs, CNNs, Transformers)",
