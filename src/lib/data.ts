@@ -34,26 +34,26 @@ export const workExperience = [
       "Applied machine learning and deep learning methods to real-world sensor data.",
     ],
   },
-  {
-    company: "Sharif Technology Systems",
-    location: "Tehran, Iran",
-    position: "R&D Engineer",
-    period: "2016 - 2018",
-    achievements: [
-      "Developed machine learning, deep learning, and reinforcement learning algorithms for control systems.",
-      "Hands-on experience with sensors and control hardware.",
-    ],
-  },
-  {
-    company: "Djavad Mowafaghian Centre",
-    location: "Tehran, Iran",
-    position: "Software Engineer",
-    period: "2018 - 2020",
-    achievements: [
-      "Contributed to the design and development of rehabilitation systems involving actuators and sensors.",
-      "Hands-on experience integrating sensor data with control software.",
-    ],
-  },
+  // {
+  //   company: "Sharif Technology Systems",
+  //   location: "Tehran, Iran",
+  //   position: "R&D Engineer",
+  //   period: "2016 - 2018",
+  //   achievements: [
+  //     "Developed machine learning, deep learning, and reinforcement learning algorithms for control systems.",
+  //     "Hands-on experience with sensors and control hardware.",
+  //   ],
+  // },
+  // {
+  //   company: "Djavad Mowafaghian Centre",
+  //   location: "Tehran, Iran",
+  //   position: "Software Engineer",
+  //   period: "2018 - 2020",
+  //   achievements: [
+  //     "Contributed to the design and development of rehabilitation systems involving actuators and sensors.",
+  //     "Hands-on experience integrating sensor data with control software.",
+  //   ],
+  // },
 ];
 
 export const education = [
