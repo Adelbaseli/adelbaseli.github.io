@@ -81,33 +81,56 @@ export const education = [
 ];
 
 export const skills = {
-  programmingLanguages: ["Python", "C++", "SQL", "MATLAB", "R"],
-  frontendDevelopment: [
-    "Machine Learning",
-    "Deep Learning",
-    "Multimodal DL (RNNs, CNNs, Transformers)",
-    "Machine Vision",
-    "Time-Series Analysis",
-    "LLMs / VLMs",
+  AIandMachineLearning: [
+    { name: "Machine Learning", icon: "..." },
+    { name: "Deep Learning", icon: "..." },
+    { name: "Multimodal Learning", icon: "..." },
+    { name: "Computer Vision", icon: "..." },
+    { name: "Time-Series Analysis", icon: "..." },
+    { name: "Large Language Models (LLMs)", icon: "..." },
+    { name: "Vision Language Models (VLMs)", icon: "..." },
+    { name: "Agentic AI", icon: "..." },
   ],
-  backendDevelopment: [
-    "PyTorch",
-    "TensorFlow",
-    "Scikit-learn",
-    "XGBoost",
-    "FastAPI",
+
+  DataAndSignalProcessing: [
+    { name: "Sensor Fusion", icon: "..." },
+    { name: "Audio Processing", icon: "..." },
+    { name: "Signal Processing", icon: "..." },
+    { name: "Human Activity Recognition", icon: "..." },
+    { name: "Data Analysis", icon: "..." },
   ],
-  databaseAndStorage: ["NumPy", "Pandas", "Matplotlib", "Databricks"],
-  cloudAndDevOps: [
-    "Docker",
-    "Singularity",
-    "Apptainer",
-    "Microsoft Azure",
-    "AWS",
-    "MLflow",
-    "CI/CD",
+
+  FrameworksAndLibraries: [
+    { name: "PyTorch", icon: "..." },
+    { name: "TensorFlow", icon: "..." },
+    { name: "Scikit-learn", icon: "..." },
+    { name: "Pandas", icon: "..." },
+    { name: "NumPy", icon: "..." },
+    { name: "OpenCV", icon: "..." },
   ],
-  toolsAndServices: ["Git", "CLI"],
+
+  RoboticsAndSystems: [
+    { name: "ROS / ROS2", icon: "..." },
+    { name: "Robot Learning", icon: "..." },
+    { name: "Robotics", icon: "..." },
+    { name: "Docker", icon: "..." },
+    { name: "Apptainer / Singularity", icon: "..." },
+  ],
+
+  Programming: [
+    { name: "Python", icon: "..." },
+    { name: "C++", icon: "..." },
+    { name: "SQL", icon: "..." },
+    { name: "MATLAB", icon: "..." },
+    { name: "Git", icon: "..." },
+  ],
+
+  CloudAndMLOps: [
+    { name: "MLflow", icon: "..." },
+    { name: "CI/CD", icon: "..." },
+    { name: "Microsoft Azure", icon: "..." },
+    { name: "AWS", icon: "..." },
+  ],
 };
 
 export const projects = [
