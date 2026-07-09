@@ -6,7 +6,11 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/adel-baselizadeh-779719b1/",
   profilePicture: "/profile_photo_updated.jpeg",
   heroDescription:
+<<<<<<< HEAD
      "I enjoy building AI systems that learn from different types of data, whether it is visual, temporal, textual, audio, or multimodal. I am interested in developing AI models that understand complex information, reason over it, and act on it through agentic AI systems. My experience covers the full AI development pipeline, from data collection and preprocessing to model development, training, evaluation, and deployment. I have experience applying AI across diverse domains, from psychology and sports science to human motion analysis, healthcare, audio, and robotics. I'm passionate about exploring new AI methods and applying them to new domains.",
+=======
+    "AI/ML researcher and engineer working on multimodal sensing and robot perception at RITMO, University of Oslo. PhD in computer science, background spanning mechanical engineering to deep learning. I build systems that combine vision, LiDAR, and sensor fusion with learning-based control — currently working on integrating VLMs and LLMs into real-time robot navigation.",
+>>>>>>> be704b3 (Revert "add final bio and title")
 };
 
 export const workExperience = [
