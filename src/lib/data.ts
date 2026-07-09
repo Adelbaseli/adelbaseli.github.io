@@ -6,7 +6,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/adel-baselizadeh-779719b1/",
   profilePicture: "/profile_photo_updated.jpeg",
   heroDescription:
-     "I enjoy building AI systems that learn from different types of data, whether it is visual, temporal, textual, audio, or multimodal. I am interested in developing AI models that understand complex information, reason over it, and act on it through agentic AI systems. My experience covers the full AI development pipeline, from data collection and preprocessing to model development, training, evaluation, and deployment. I have experience applying AI across diverse domains, from psychology and sports science to human motion analysis, healthcare, audio, and robotics. I'm passionate about exploring new AI methods and applying them to problems that haven't been solved yet.",
+     "I enjoy building AI systems that learn from different types of data, whether it is visual, temporal, textual, audio, or multimodal. I am interested in developing AI models that understand complex information, reason over it, and act on it through agentic AI systems. My experience covers the full AI development pipeline, from data collection and preprocessing to model development, training, evaluation, and deployment. I have experience applying AI across diverse domains, from psychology and sports science to human motion analysis, healthcare, audio, and robotics. I'm passionate about exploring new AI methods and applying them to new domains.",
 };
 
 export const workExperience = [
