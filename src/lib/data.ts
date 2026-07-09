@@ -80,76 +80,34 @@ export const education = [
   },
 ];
 
-import {
-  SiPython,
-  SiCplusplus,
-  SiSqlite,
-  SiR,
-  SiPytorch,
-  SiTensorflow,
-  SiScikitlearn,
-  SiOpencv,
-  SiPandas,
-  SiNumpy,
-  SiDocker,
-  SiGithub,
-  SiAmazon,
-  SiMicrosoftazure,
-} from "react-icons/si";
-
-import {
-  FaBrain,
-  FaRobot,
-  FaChartLine,
-  FaEye,
-  FaWaveSquare,
-  FaCloud,
-} from "react-icons/fa";
-
 export const skills = {
-  Programming: [
-    { name: "Python", icon: SiPython },
-    { name: "C++", icon: SiCplusplus },
-    { name: "SQL", icon: SiSqlite },
-    { name: "MATLAB", icon: FaChartLine },
-    { name: "R", icon: SiR },
+  programmingLanguages: ["Python", "C++", "SQL", "MATLAB", "R"],
+  AI: [
+    "Machine Learning",
+    "Deep Learning",
+    "Multimodal DL (RNNs, CNNs, Transformers)",
+    "Machine Vision",
+    "Time-Series Analysis",
+    "LLMs / VLMs",
   ],
-
-  "AI & Machine Learning": [
-    { name: "Machine Learning", icon: FaBrain },
-    { name: "Deep Learning", icon: FaBrain },
-    { name: "Multimodal Learning", icon: FaBrain },
-    { name: "Computer Vision", icon: FaEye },
-    { name: "Time-Series Analysis", icon: FaChartLine },
-    { name: "LLMs", icon: FaBrain },
-    { name: "VLMs", icon: FaBrain },
-    { name: "Agentic AI", icon: FaRobot },
+  backendDevelopment: [
+    "PyTorch",
+    "TensorFlow",
+    "Scikit-learn",
+    "XGBoost",
+    "FastAPI",
   ],
-
-  "Frameworks & Libraries": [
-    { name: "PyTorch", icon: SiPytorch },
-    { name: "TensorFlow", icon: SiTensorflow },
-    { name: "Scikit-learn", icon: SiScikitlearn },
-    { name: "OpenCV", icon: SiOpencv },
-    { name: "Pandas", icon: SiPandas },
-    { name: "NumPy", icon: SiNumpy },
+  databaseAndStorage: ["NumPy", "Pandas", "Matplotlib", "Databricks"],
+  cloudAndDevOps: [
+    "Docker",
+    "Singularity",
+    "Apptainer",
+    "Microsoft Azure",
+    "AWS",
+    "MLflow",
+    "CI/CD",
   ],
-
-  "Robotics & Systems": [
-    { name: "ROS / ROS2", icon: FaRobot },
-    { name: "Sensor Fusion", icon: FaWaveSquare },
-    { name: "Docker", icon: SiDocker },
-    { name: "Apptainer", icon: FaCloud },
-    { name: "Singularity", icon: FaCloud },
-  ],
-
-  "Cloud & MLOps": [
-    { name: "AWS", icon: SiAmazon },
-    { name: "Microsoft Azure", icon: SiMicrosoftazure },
-    { name: "MLflow", icon: FaCloud },
-    { name: "CI/CD", icon: FaCloud },
-    { name: "Git", icon: SiGithub },
-  ],
+  toolsAndServices: ["Git", "CLI"],
 };
 
 export const projects = [
