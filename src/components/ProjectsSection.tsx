@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Github, X } from "lucide-react";
+import { Eye, Github, X } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 import MotionWrapper from "./MotionWrapper";
 import { AnimatePresence, motion } from "framer-motion";
@@ -33,11 +33,19 @@ export default function ProjectsSection() {
                 className="group overflow-hidden dark:border-purple-500/10 h-full flex flex-col cursor-pointer"
               >
                 {project.image && (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:-rotate-1 group-hover:brightness-75 group-hover:shadow-2xl"
-                  />
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover transition-all duration-700 ease-out group-hover:scale-125 group-hover:-rotate-2 group-hover:brightness-50 group-hover:shadow-2xl"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <span className="flex translate-y-3 items-center gap-2 text-sm font-medium text-white opacity-0 transition-all duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100">
+                        <Eye className="h-4 w-4" />
+                        View Details
+                      </span>
+                    </div>
+                  </div>
                 )}
                 <CardHeader className="bg-gradient-to-r from-purple-500/5 to-pink-500/5">
                   <CardTitle className="text-center md:text-left group-hover:text-purple-500 transition-colors duration-300">
