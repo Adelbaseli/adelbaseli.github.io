@@ -112,17 +112,21 @@ export const skills = {
 
 export const projects = [
   {
-    title:
-      "Privacy-Preserving 3D Lidar-Based Multi-Modal Activity Recognition in Human-Robot Interaction",
+    title: "Privacy-Preserving Activity Recognition for Human-Robot Interaction",
     image: "/projects/lidar-har-hri.png",
-    link: "/papers/lidar-har-hri.pdf",
-    linkLabel: "Read Paper",
+    github: "https://github.com/Adelbaseli",
     description: [
-      "Developed privacy-preserving human activity recognition (HAR) models for human-robot interaction (HRI), centered on 3D Lidar since it captures enough information for activity recognition without exposing sensitive user data.",
-      "Integrated 3D Lidar with a wrist-worn wearable sensor and a robot's force/torque sensors using multimodal deep learning (CNN, LSTM, Seq2Seq, and PointNet++).",
-      "Compared data-level and feature-level sensor fusion strategies for recognizing 9 human-robot interaction activities from the PriMA-Care dataset, collected on a TIAGo care robot.",
-      "Feature-level fusion of all three sensors achieved the best results, 80.73% accuracy, outperforming any single sensor or the wearable + force/torque combination alone.",
-      "Published at ICCMA 2025 (IEEE 13th International Conference on Control, Mechatronics and Automation).",
+      "A multimodal deep-learning system that lets a care robot recognize what a person is doing around it, from handing over an object to commanding it with gestures.",
+      "Combines 3D Lidar with a wrist-worn wearable and the robot's force/torque sensors, so no cameras or personally identifiable data are needed.",
+      "Reaches 80%+ recognition accuracy across 9 activities by fusing all three sensors, using CNN, LSTM, Seq2Seq, and PointNet++ models.",
+    ],
+    details: [
+      "Designed separate deep-learning models per sensor: a ConvLSTM network for the wearable and force/torque time-series data, and a PointNet++ network for the 3D Lidar point clouds.",
+      "Explored two ways to merge the sensors: combining raw data early (data-level fusion) versus combining each model's learned features (feature-level fusion) through a Seq2Seq mechanism for the Lidar stream.",
+      "Trained and evaluated the models on 9 real human-robot interaction activities, e.g. giving an object, holding the robot's hand while walking, stopping it, commanding it to rotate, captured on a TIAGo robot.",
+      "Feature-level fusion of all three sensors was the clear winner, reaching 80.73% accuracy, well above any single sensor or a two-sensor combination.",
+      "Every sensor was chosen specifically for being privacy-preserving, so the system understands user activity without capturing faces, video, or other identifiable data, which matters for home and healthcare settings.",
+      "Trained large point-cloud models efficiently despite heavy compute demands, by extracting only the relevant, moving regions of each Lidar scan.",
     ],
   },
   {
