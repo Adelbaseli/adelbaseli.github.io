@@ -112,14 +112,17 @@ export const skills = {
 
 export const projects = [
   {
-    title: "Lorem Ipsum Project",
-    github: "https://github.com/loremipsum/project",
+    title:
+      "Privacy-Preserving 3D Lidar-Based Multi-Modal Activity Recognition in Human-Robot Interaction",
+    image: "/projects/lidar-har-hri.png",
+    link: "/papers/lidar-har-hri.pdf",
+    linkLabel: "Read Paper",
     description: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
-      "Excepteur sint occaecat cupidatat non proident.",
+      "Developed privacy-preserving human activity recognition (HAR) models for human-robot interaction (HRI), centered on 3D Lidar since it captures enough information for activity recognition without exposing sensitive user data.",
+      "Integrated 3D Lidar with a wrist-worn wearable sensor and a robot's force/torque sensors using multimodal deep learning (CNN, LSTM, Seq2Seq, and PointNet++).",
+      "Compared data-level and feature-level sensor fusion strategies for recognizing 9 human-robot interaction activities from the PriMA-Care dataset, collected on a TIAGo care robot.",
+      "Feature-level fusion of all three sensors achieved the best results, 80.73% accuracy, outperforming any single sensor or the wearable + force/torque combination alone.",
+      "Published at ICCMA 2025 (IEEE 13th International Conference on Control, Mechatronics and Automation).",
     ],
   },
   {
