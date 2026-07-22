@@ -9,7 +9,6 @@ import {
 } from "./ui/card";
 import { ArrowLeft, Eye, Github, X } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
-import { cn } from "@/lib/utils";
 import MotionWrapper from "./MotionWrapper";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -35,9 +34,17 @@ export default function ProjectsSection() {
     <section id="projects" className="py-12 relative">
       <div className="container max-w-4xl mx-auto px-6 md:px-4">
         <MotionWrapper>
-          <h2 className="text-2xl font-bold mb-8 text-center md:text-left">
+          <h2 className="text-2xl font-bold mb-3 text-center md:text-left">
             🚀 Projects
           </h2>
+        </MotionWrapper>
+
+        <MotionWrapper delay={0.1}>
+          <p className="text-muted-foreground mb-8 text-center md:text-left max-w-2xl md:mx-0 mx-auto">
+            I've worked on applying various AI methods across different
+            fields, from perception to human-centered evaluation. Pick an
+            area below to see the projects in it.
+          </p>
         </MotionWrapper>
 
         <AnimatePresence mode="wait">
@@ -45,7 +52,7 @@ export default function ProjectsSection() {
             <motion.div
               key="categories"
               exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.25 } }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="flex flex-col sm:flex-row rounded-2xl overflow-hidden shadow-lg"
             >
               {availableCategories.map((category, index) => {
                 const meta = categoryMeta[category];
@@ -60,20 +67,28 @@ export default function ProjectsSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.08 }}
-                    whileHover={{ scale: 1.03, y: -4 }}
-                    whileTap={{ scale: 0.98 }}
                     onClick={() => setSelectedCategory(category)}
-                    className={cn(
-                      "group relative overflow-hidden rounded-2xl p-8 text-left text-white shadow-lg bg-gradient-to-br",
-                      meta.gradient
-                    )}
+                    className="group relative flex-1 aspect-[3/4] overflow-hidden text-left text-white"
                   >
-                    <Icon className="h-10 w-10 mb-4 opacity-90 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3" />
-                    <h3 className="text-xl font-semibold">{category}</h3>
-                    <p className="text-sm text-white/80 mt-1">
-                      {count} {count === 1 ? "project" : "projects"}
-                    </p>
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                    {meta.image && (
+                      <img
+                        src={meta.image}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-110 group-hover:brightness-50"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/0 opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="absolute inset-0 flex flex-col justify-end p-5">
+                      <div className="opacity-0 translate-y-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                        <Icon className="h-6 w-6 mb-2" />
+                        <h3 className="text-lg font-semibold leading-tight">
+                          {category}
+                        </h3>
+                        <p className="text-xs text-white/80 mt-1">
+                          {count} {count === 1 ? "project" : "projects"}
+                        </p>
+                      </div>
+                    </div>
                   </motion.button>
                 );
               })}
@@ -87,21 +102,28 @@ export default function ProjectsSection() {
                 <motion.button
                   layoutId={`category-card-${selectedCategory}`}
                   onClick={() => setSelectedCategory(null)}
-                  className={cn(
-                    "flex items-center gap-4 w-full rounded-2xl p-6 mb-8 text-left text-white shadow-lg bg-gradient-to-br",
-                    selectedMeta.gradient
-                  )}
+                  className="group relative flex items-center gap-4 w-full h-32 rounded-2xl overflow-hidden mb-8 text-left text-white shadow-lg"
                 >
-                  <ArrowLeft className="h-5 w-5 shrink-0" />
-                  <selectedMeta.icon className="h-8 w-8 shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-semibold">
-                      {selectedCategory}
-                    </h3>
-                    <p className="text-sm text-white/80">
-                      {categoryProjects.length}{" "}
-                      {categoryProjects.length === 1 ? "project" : "projects"}
-                    </p>
+                  {selectedMeta.image && (
+                    <img
+                      src={selectedMeta.image}
+                      alt=""
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black/60 transition-colors duration-300 group-hover:bg-black/50" />
+                  <div className="relative flex items-center gap-4 px-6">
+                    <ArrowLeft className="h-5 w-5 shrink-0" />
+                    <selectedMeta.icon className="h-8 w-8 shrink-0" />
+                    <div>
+                      <h3 className="text-lg font-semibold">
+                        {selectedCategory}
+                      </h3>
+                      <p className="text-sm text-white/80">
+                        {categoryProjects.length}{" "}
+                        {categoryProjects.length === 1 ? "project" : "projects"}
+                      </p>
+                    </div>
                   </div>
                 </motion.button>
               )}

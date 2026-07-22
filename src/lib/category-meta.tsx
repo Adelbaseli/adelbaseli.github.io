@@ -9,28 +9,30 @@ import {
 
 interface CategoryMeta {
   icon: LucideIcon;
-  gradient: string;
+  // A representative background image for the category tile. Reuses real
+  // figures/photos from projects in that category rather than stock photos.
+  // Add one here before a category's first project ships, or its tile will
+  // render without a background image.
+  image?: string;
 }
 
 export const categoryMeta: Record<string, CategoryMeta> = {
   "Machine Vision": {
     icon: Eye,
-    gradient: "from-indigo-500 to-cyan-500",
+    image: "/projects/pose-prediction-hri.png",
   },
   "Audio Processing": {
     icon: AudioLines,
-    gradient: "from-violet-500 to-fuchsia-500",
   },
   "Reinforcement Learning": {
     icon: Gamepad2,
-    gradient: "from-emerald-500 to-teal-500",
   },
   "Agentic AI / LLM / VLM": {
     icon: Sparkles,
-    gradient: "from-amber-500 to-orange-500",
+    image: "/projects/multimodal-transfer-learning.png",
   },
   "User Studies & Statistical Testing": {
     icon: ClipboardList,
-    gradient: "from-slate-500 to-blue-500",
+    image: "/projects/rowing-skill-classification.png",
   },
 };
