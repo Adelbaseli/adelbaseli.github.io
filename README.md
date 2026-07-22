@@ -1,186 +1,43 @@
-# Modern Portfolio Template
+# adelbaseli.github.io
 
-A sleek, responsive portfolio website built with **Astro**, **React**, and **Tailwind CSS**, featuring modern animations and stunning glassmorphism effects.
+This is my personal portfolio site, built with **Astro**, **React**, **TypeScript**, and **Tailwind CSS**. It's where I keep my work experience, education, skills, and a running list of projects, most of which are papers I've published on privacy-preserving sensing and human-robot interaction, each with a figure pulled from the paper and a short write-up of what it actually does.
 
-# ![Portfolio Screenshot](https://github.com/user-attachments/assets/4f2466f1-1ebe-4cbe-857c-40eccd63c384)
+Live at: [adelbaseli.github.io](https://adelbaseli.github.io)
 
-## ✨ Features
+## Where this started
 
-- **Modern Design** – Clean, professional layout with elegant glassmorphism
-- **Animations** – Smooth transitions and interactive UI via Framer Motion
-- **Dark/Light Mode** – Automatic theme switching with system preference detection
-- **Fully Responsive** – Optimized for mobile, tablet, and desktop
-- **Blazing Fast** – Powered by Astro for superior performance
-- **Modular Structure** – Built for easy customization and scalability
-- **SEO Friendly** – Structured content and meta tags for better visibility
+I didn't build this from scratch. The base layout, the glassmorphism cards, the dark/light theme toggle, the animation setup, all of that came from [rkeshs/my-portfolio](https://github.com/rkeshs/my-portfolio), a template shared by Rishikesh S. under the MIT License. I kept the original [LICENSE](LICENSE) file as-is, since the MIT license requires that, and everything visual and structural you see here is built on top of that foundation. From there I rewrote the content, added the projects section with clickable detail modals and paper links, swapped in my own color palette, and have been filling it in with my own work since.
 
-## 🚀 Demo
+## Stack
 
-👉 [Live Demo](https://rishilol.vercel.app/)
+- **Astro** for the static site
+- **React** for the interactive bits (project cards, theme toggle, animations)
+- **Tailwind CSS** for styling
+- **Framer Motion** for the animations
+- **Lucide** for icons
 
-## 🛠 Getting Started
-
-### Prerequisites
-
-- Node.js (v18+ recommended)
-- npm / yarn / bun
-
-### Installation
+## Running it locally
 
 ```bash
-git clone https://github.com/yourusername/my-portfolio.git
-cd my-portfolio
-
-# Install dependencies
-npm install
-# or
-yarn install
-# or
+git clone https://github.com/Adelbaseli/adelbaseli.github.io.git
+cd adelbaseli.github.io
 bun install
-
-# Start development server
-npm run dev
-# or
-yarn dev
-# or
 bun dev
 ```
 
-Visit `http://localhost:4321` in your browser to see it in action.
+Then open `http://localhost:4321`.
 
-## 🧩 Customizing the Portfolio
-
-All your content lives inside `src/lib/data.ts`. Update the following to make it yours:
-
-### 1. Personal Info
-
-```ts
-export const personalInfo = {
-  name: "Your Name",
-  location: "Your Location",
-  email: "your.email@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://www.linkedin.com/in/yourusername/",
-};
-```
-
-### 2. Work Experience
-
-```ts
-export const workExperience = [
-  {
-    company: "Company Name",
-    location: "Location",
-    position: "Your Position",
-    period: "Start Date - End Date",
-    achievements: [
-      "Achievement 1",
-      "Achievement 2",
-    ],
-  },
-];
-```
-
-### 3. Education
-
-```ts
-export const education = [
-  {
-    institution: "University Name",
-    location: "Location",
-    degree: "Your Degree",
-    period: "Start Date - End Date",
-    achievements: [
-      "Achievement 1",
-      "Achievement 2",
-    ],
-  },
-];
-```
-
-### 4. Skills
-
-```ts
-export const skills = {
-  programmingLanguages: ["TypeScript", "Python"],
-  frontendDevelopment: ["React", "Next.js"],
-  // and more...
-};
-```
-
-### 5. Projects
-
-```ts
-export const projects = [
-  {
-    title: "Project Name",
-    github: "https://github.com/yourusername/project",
-    description: [
-      "What it does",
-      "Technologies used",
-    ],
-  },
-];
-```
-
-### 6. Awards
-
-```ts
-export const awards = [
-  {
-    name: "Award Name",
-    issuer: "Issuer",
-    date: "Date",
-    type: "Type",
-    position: "Position",
-  },
-];
-```
-
-## 📦 Build for Production
+To build and preview the production version:
 
 ```bash
-npm run build
-# or
-yarn build
-# or
 bun run build
+bun run preview
 ```
 
-To preview the production build locally:
+## Structure
 
-```bash
-npm run preview
-# or
-yarn preview
-```
+Almost everything content-related lives in [src/lib/data.ts](src/lib/data.ts): work experience, education, skills, projects, and awards are all plain arrays there, so updating the site is mostly editing that one file. Project images live in `public/projects/`, and the PDFs of the papers themselves are in `public/papers/`.
 
-## 📤 Deployment
+## License
 
-Easily deploy to platforms like **Vercel**, **Netlify**, **GitHub Pages**, or any static host of your choice.
-
-## 📝 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## ©️ Copyright
-
-© 2025 **Rishikesh S.** All rights reserved.
-
-You’re welcome to use this template for your own portfolio — just update `data.ts` and tweak the design as needed. Please keep attribution to the original author.
-
----
-
-## 🌟 Like it?
-
-If you found this helpful or inspiring, **please consider leaving a star** ⭐ on the repo — it helps others discover it too!
-
----
-
-## 🙏 Acknowledgments
-
-- [Astro](https://astro.build/)
-- [React](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Lucide Icons](https://lucide.dev/)
+The original template is MIT-licensed by Rishikesh S. (see [LICENSE](LICENSE)). My own additions, content, and the papers linked from this site are mine.
