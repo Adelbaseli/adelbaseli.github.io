@@ -11,15 +11,15 @@ export const personalInfo = {
 
 export const workExperience = [
   {
-    company: "RITMO Centre, University of Oslo",
+    company: "RITMO Centre",
     location: "Oslo, Norway",
-    position: "AI Researcher & Applied ML Engineer",
+    position: "Applied ML Engineer & AI Researcher",
     period: "2024 - Present",
     achievements: [
-      "Applying machine learning and deep learning for data analysis across time-series, vision, and audio modalities.",
-      "Working on multimodal sensing, sensor fusion, and multimodal deep learning (RNNs, CNNs, Transformers).",
-      "Audio-based machine learning and cross-modal signal processing.",
-      "Collaborating with experts across healthcare, sports science, psychology, and audio technology.",
+      "Design and train deep learning models for multimodal data (time-series, vision, and audio) to support research in psychology, sports science, and healthcare.",
+      "Build sensor fusion pipelines combining RNNs, CNNs, and Transformers to extract insights from multimodal sensing data.",
+      "Develop audio-based ML models and cross-modal signal processing methods for real-world research applications.",
+      "Partner directly with domain experts to translate research questions into deployable ML solutions.",
     ],
   },
   {
@@ -28,10 +28,10 @@ export const workExperience = [
     position: "PhD Fellow, AI / Informatics",
     period: "2020 - 2024",
     achievements: [
-      "Designed deep learning models for human activity classification, monitoring, and event detection.",
-      "Developed multimodal sensing systems and sensor fusion techniques across vision sensors and LiDAR.",
-      "Built ML/DL pipelines end-to-end: dataset collection, preprocessing, model development, and evaluation.",
-      "Applied machine learning and deep learning methods to real-world sensor data.",
+      "Designed and trained deep learning models for human activity recognition, enabling accurate classification and event detection from sensor data.",
+      "Built multimodal sensing systems fusing vision and LiDAR sensors to improve activity recognition accuracy and robustness.",
+      "Delivered end-to-end ML/DL pipelines, from dataset collection and preprocessing to model training and evaluation.",
+      "Applied deep learning to real-world, noisy sensor data across human-robot interaction and activity monitoring use cases.",
     ],
   },
   // {

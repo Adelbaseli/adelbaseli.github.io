@@ -1,8 +1,6 @@
 import { education } from "@/lib/data";
-import TimelineItem from "./TimelineItem";
-import { Award } from "lucide-react";
 import MotionWrapper from "./MotionWrapper";
-import { motion } from "framer-motion";
+import { GlassCard } from "./ui/glass-card";
 
 export default function EducationSection() {
   return (
@@ -17,53 +15,36 @@ export default function EducationSection() {
           </h2>
         </MotionWrapper>
 
-        <div className="mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {education.map((edu, index) => (
-            <TimelineItem
-              key={edu.institution}
-              title={`🎓 ${edu.degree}`}
-              subtitle={`🏛️ ${edu.institution}`}
-              date={`📅 ${edu.period}`}
-              isLast={index === education.length - 1}
-              index={index}
-            >
-              <p className="text-sm text-muted-foreground mb-3">
-                📍 {edu.location}
-              </p>
+            <MotionWrapper key={edu.institution} delay={index * 0.15}>
+              <GlassCard className="group relative overflow-hidden p-5 h-full">
+                <div className="absolute top-0 left-0 h-1 w-0 bg-gradient-to-r from-indigo-500 to-cyan-500 transition-[width] duration-1000 ease-linear group-hover:w-full" />
 
-              {edu.achievements && edu.achievements.length > 0 && (
-                <motion.div
-                  className="mt-3 p-4 bg-background/80 backdrop-blur-sm backdrop-filter rounded-lg border border-indigo-500/20 dark:bg-card/10 dark:border-indigo-500/10 shadow-sm"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex items-center mb-3">
-                    <div className="h-6 w-6 flex items-center justify-center rounded-full bg-indigo-500/10 mr-2">
-                      <Award className="h-4 w-4 text-indigo-500" />
-                    </div>
-                    <h4 className="text-sm font-medium">
-                      ✨ Achievements & Activities
-                    </h4>
-                  </div>
-                  <ul className="list-none ml-4 space-y-2 text-sm">
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-medium">🎓 {edu.degree}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    🏛️ {edu.institution}
+                  </p>
+                  <p className="text-xs text-muted-foreground/70">
+                    📍 {edu.location}
+                  </p>
+                  <p className="text-xs text-muted-foreground/70">
+                    📅 {edu.period}
+                  </p>
+                </div>
+
+                {edu.achievements && edu.achievements.length > 0 && (
+                  <ul className="list-disc ml-4 mt-3 space-y-1 text-sm">
                     {edu.achievements.map((achievement, i) => (
-                      <motion.li
-                        key={i}
-                        className="text-muted-foreground relative pl-6"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.1 * i }}
-                        viewport={{ once: true }}
-                      >
+                      <li key={i} className="text-muted-foreground">
                         {achievement}
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
-                </motion.div>
-              )}
-            </TimelineItem>
+                )}
+              </GlassCard>
+            </MotionWrapper>
           ))}
         </div>
       </div>

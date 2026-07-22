@@ -50,9 +50,9 @@ export default function TimelineItem({
           />
         )}
       </div>
-      <div className={cn("pb-8", isLast ? "pb-0" : "")}>
+      <div className={cn("pb-8 flex-1", isLast ? "pb-0" : "")}>
         <motion.div
-          className="flex flex-col gap-0.5"
+          className="flex flex-col gap-0.5 rounded-lg border border-border/40 p-4 transition-colors duration-700 ease-in-out hover:border-indigo-500/60"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
@@ -61,13 +61,6 @@ export default function TimelineItem({
           <h3 className="font-medium">{title}</h3>
           <p className="text-sm text-muted-foreground">{subtitle}</p>
           <p className="text-xs text-muted-foreground/70 mb-2">{date}</p>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
-          viewport={{ once: true, margin: "-50px" }}
-        >
           {children}
         </motion.div>
       </div>
