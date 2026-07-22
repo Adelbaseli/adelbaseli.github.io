@@ -82,23 +82,21 @@ export const education = [
 
 export const skills = {
   programmingLanguages: ["Python", "C++", "SQL", "MATLAB", "R"],
-  frontendDevelopment: [
+  aiAndMachineLearning: [
     "Machine Learning",
     "Deep Learning",
     "Multimodal DL (RNNs, CNNs, Transformers)",
     "Machine Vision",
     "Time-Series Analysis",
     "LLMs / VLMs",
-  ],
-  backendDevelopment: [
     "PyTorch",
     "TensorFlow",
     "Scikit-learn",
     "XGBoost",
     "FastAPI",
   ],
-  databaseAndStorage: ["NumPy", "Pandas", "Matplotlib", "Databricks"],
-  cloudAndDevOps: [
+  dataAndStorage: ["NumPy", "Pandas", "Matplotlib", "Databricks"],
+  devOpsAndTools: [
     "Docker",
     "Singularity",
     "Apptainer",
@@ -106,8 +104,9 @@ export const skills = {
     "AWS",
     "MLflow",
     "CI/CD",
+    "Git",
+    "CLI",
   ],
-  toolsAndServices: ["Git", "CLI"],
 };
 
 export const projects = [

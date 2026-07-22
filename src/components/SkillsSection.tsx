@@ -1,12 +1,13 @@
 import React from "react";
 import { skills } from "@/lib/data";
-import { skillIcons } from "@/lib/skill-icons";
+import { skillMeta } from "@/lib/skill-icons";
 import { motion } from "framer-motion";
 import MotionWrapper from "./MotionWrapper";
 import { GlassCard } from "./ui/glass-card";
 
 function SkillTag({ skill, index }: { skill: string; index: number }) {
-  const Icon = skillIcons[skill];
+  const meta = skillMeta[skill];
+  const Icon = meta?.icon;
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -20,7 +21,9 @@ function SkillTag({ skill, index }: { skill: string; index: number }) {
       whileHover={{ scale: 1.05, y: -2 }}
       className="flex items-center gap-1.5 px-3 py-1 bg-muted/80 backdrop-blur-sm rounded-md text-sm border border-indigo-500/10 shadow-sm"
     >
-      {Icon && <Icon className="h-4 w-4 shrink-0" />}
+      {Icon && (
+        <Icon className="h-4 w-4 shrink-0" style={{ color: meta.color }} />
+      )}
       {skill}
     </motion.div>
   );
@@ -54,29 +57,19 @@ const skillCategories = [
     items: skills.programmingLanguages,
   },
   {
-    icon: "🎨",
-    title: "Frontend Development",
-    items: skills.frontendDevelopment,
-  },
-  {
-    icon: "⚙️",
-    title: "Backend Development",
-    items: skills.backendDevelopment,
+    icon: "🤖",
+    title: "AI & Machine Learning",
+    items: skills.aiAndMachineLearning,
   },
   {
     icon: "🗄️",
-    title: "Database & Storage",
-    items: skills.databaseAndStorage,
+    title: "Data & Storage",
+    items: skills.dataAndStorage,
   },
   {
     icon: "☁️",
-    title: "Cloud & DevOps",
-    items: skills.cloudAndDevOps,
-  },
-  {
-    icon: "🧰",
-    title: "Tools & Services",
-    items: skills.toolsAndServices,
+    title: "DevOps & Tools",
+    items: skills.devOpsAndTools,
   },
 ];
 
