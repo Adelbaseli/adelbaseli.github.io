@@ -109,19 +109,26 @@ export const skills = {
   ],
 };
 
-// Shared vocabulary of project tags, in the order they should appear as
-// filter pills. Not every tag is necessarily used yet.
-export const projectTags = [
-  "Human-Robot Interaction",
-  "Human Activity Recognition",
-  "Multimodal Sensing",
+// Level 1: the AI technique/method a project is built around. Shown as big
+// category cards; a project can belong to more than one. Order controls the
+// order the category cards appear in (only categories with >=1 project show).
+export const techniqueCategories = [
   "Machine Vision",
-  "Audio",
-  "Sports Science",
-  "Psychology",
+  "Audio Processing",
   "Reinforcement Learning",
   "Agentic AI / LLM / VLM",
   "User Studies & Statistical Testing",
+];
+
+// Level 2: the application domain, shown as small badges on each project
+// card once you're browsing inside a technique category.
+export const domainTags = [
+  "Human-Robot Interaction",
+  "Human Activity Recognition",
+  "Multimodal Sensing",
+  "Sports Science",
+  "Psychology",
+  "Audio",
 ];
 
 export const projects = [
@@ -129,7 +136,8 @@ export const projects = [
     title: "Privacy-Preserving Activity Recognition for Human-Robot Interaction",
     image: "/projects/lidar-har-hri.png",
     github: "https://github.com/Adelbaseli",
-    tags: [
+    techniques: ["Machine Vision"],
+    domains: [
       "Human-Robot Interaction",
       "Human Activity Recognition",
       "Multimodal Sensing",
@@ -152,7 +160,8 @@ export const projects = [
     title: "PriMA-Care: Privacy-Preserving Multimodal Dataset for Care Robots",
     image: "/projects/prima-care-dataset.png",
     github: "https://github.com/Adelbaseli",
-    tags: [
+    techniques: ["Machine Vision"],
+    domains: [
       "Human-Robot Interaction",
       "Human Activity Recognition",
       "Multimodal Sensing",
@@ -175,7 +184,8 @@ export const projects = [
     title: "Transfer Learning for Privacy-Preserving Activity Recognition",
     image: "/projects/multimodal-transfer-learning.png",
     github: "https://github.com/Adelbaseli",
-    tags: ["Human Activity Recognition", "Multimodal Sensing"],
+    techniques: ["Agentic AI / LLM / VLM"],
+    domains: ["Human Activity Recognition", "Multimodal Sensing"],
     description: [
       "Compared large general-purpose multimodal models against activity-recognition-specific models for recognizing what a person is doing around a robot.",
       "Tested across RGB, IMU, and depth sensors, and combinations of them, to see how well each generalizes beyond its original training data.",
@@ -194,7 +204,8 @@ export const projects = [
     title: "Wi-Fi-Based Sleep Posture Monitoring",
     image: "/projects/wifi-sleep-posture.png",
     github: "https://github.com/Adelbaseli",
-    tags: ["Human Activity Recognition", "Multimodal Sensing"],
+    techniques: ["User Studies & Statistical Testing"],
+    domains: ["Human Activity Recognition", "Multimodal Sensing"],
     description: [
       "Built a sleep posture monitoring system that uses ordinary Wi-Fi signals instead of cameras, so it works in the dark and needs no wearables.",
       "Captured Wi-Fi Channel State Information (CSI) from low-cost ESP32 devices placed around a bed, under three blanket thicknesses and from four receiver positions.",
@@ -213,11 +224,8 @@ export const projects = [
     title: "Predicting User Movement for Safer Human-Robot Interaction",
     image: "/projects/pose-prediction-hri.png",
     github: "https://github.com/Adelbaseli",
-    tags: [
-      "Human-Robot Interaction",
-      "Multimodal Sensing",
-      "Machine Vision",
-    ],
+    techniques: ["Machine Vision"],
+    domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "Built a privacy-preserving system that tracks a person's upper-body pose using only a thermal camera and depth sensor, no RGB video.",
       "Trained a lightweight Seq2Seq deep learning model to predict where a person's body will be a moment in the future, compensating for sensing lag.",
@@ -236,7 +244,8 @@ export const projects = [
     title: "Can Machine Learning Distinguish Elite from Non-Elite Rowers?",
     image: "/projects/rowing-skill-classification.png",
     github: "https://github.com/Adelbaseli",
-    tags: ["Sports Science", "Human Activity Recognition"],
+    techniques: ["User Studies & Statistical Testing"],
+    domains: ["Sports Science", "Human Activity Recognition"],
     description: [
       "Built machine learning models (MLPs, CNNs, GRUs) that classify rowers as elite or non-elite from ergometer motion-capture data.",
       "Extracted joint angles and stroke-phase features from full-body motion capture to describe rowing technique.",
