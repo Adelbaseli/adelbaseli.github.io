@@ -30,7 +30,7 @@ export default function ProjectsSection() {
             <MotionWrapper key={project.title} delay={index * 0.2}>
               <GlassCard
                 onClick={() => setActiveIndex(index)}
-                className="group overflow-hidden dark:border-teal-500/10 h-full flex flex-col cursor-pointer"
+                className="group overflow-hidden dark:border-indigo-500/10 h-full flex flex-col cursor-pointer"
               >
                 {project.image && (
                   <div className="relative overflow-hidden">
@@ -47,8 +47,8 @@ export default function ProjectsSection() {
                     </div>
                   </div>
                 )}
-                <CardHeader className="bg-gradient-to-r from-teal-500/5 to-emerald-500/5">
-                  <CardTitle className="text-center md:text-left group-hover:text-teal-500 transition-colors duration-300">
+                <CardHeader className="bg-gradient-to-r from-indigo-500/5 to-cyan-500/5">
+                  <CardTitle className="text-center md:text-left group-hover:text-indigo-500 transition-colors duration-300">
                     {project.title}
                   </CardTitle>
                 </CardHeader>
@@ -69,13 +69,13 @@ export default function ProjectsSection() {
                   </ul>
                 </CardContent>
                 {project.github && (
-                  <CardFooter className="flex justify-center md:justify-start items-center border-t border-border/30 bg-gradient-to-r from-teal-500/5 to-emerald-500/5">
+                  <CardFooter className="flex justify-center md:justify-start items-center border-t border-border/30 bg-gradient-to-r from-indigo-500/5 to-cyan-500/5">
                     <motion.a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center text-sm text-muted-foreground hover:text-teal-500 transition-colors group/link pt-8"
+                      className="flex items-center text-sm text-muted-foreground hover:text-indigo-500 transition-colors group/link pt-8"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -120,7 +120,7 @@ export default function ProjectsSection() {
                   <button
                     onClick={() => setActiveIndex(null)}
                     aria-label="Close"
-                    className="shrink-0 text-muted-foreground hover:text-teal-500 transition-colors"
+                    className="shrink-0 text-muted-foreground hover:text-indigo-500 transition-colors"
                   >
                     <X className="h-5 w-5" />
                   </button>
@@ -137,7 +137,7 @@ export default function ProjectsSection() {
                     href={activeProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm text-muted-foreground hover:text-teal-500 transition-colors mt-6"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-500 transition-colors mt-6"
                   >
                     <Github className="h-4 w-4 mr-2" />
                     View on GitHub 🔗
