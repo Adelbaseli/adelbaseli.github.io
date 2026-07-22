@@ -52,7 +52,7 @@ export default function ProjectsSection() {
             <motion.div
               key="categories"
               exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.25 } }}
-              className="flex flex-col sm:flex-row rounded-2xl overflow-hidden shadow-lg"
+              className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-white/25 rounded-2xl overflow-hidden shadow-lg"
             >
               {availableCategories.map((category, index) => {
                 const meta = categoryMeta[category];

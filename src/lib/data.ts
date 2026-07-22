@@ -113,7 +113,8 @@ export const skills = {
 // category cards; a project can belong to more than one. Order controls the
 // order the category cards appear in (only categories with >=1 project show).
 export const techniqueCategories = [
-  "Machine Vision",
+  "Human Activity Recognition",
+  "Computer Vision",
   "Audio Processing",
   "Reinforcement Learning",
   "Agentic AI / LLM / VLM",
@@ -136,12 +137,8 @@ export const projects = [
     title: "Privacy-Preserving Activity Recognition for Human-Robot Interaction",
     image: "/projects/lidar-har-hri.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Machine Vision"],
-    domains: [
-      "Human-Robot Interaction",
-      "Human Activity Recognition",
-      "Multimodal Sensing",
-    ],
+    techniques: ["Human Activity Recognition"],
+    domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "A multimodal deep-learning system that lets a care robot recognize what a person is doing around it, from handing over an object to commanding it with gestures.",
       "Combines 3D Lidar with a wrist-worn wearable and the robot's force/torque sensors, so no cameras or personally identifiable data are needed.",
@@ -160,12 +157,8 @@ export const projects = [
     title: "PriMA-Care: Privacy-Preserving Multimodal Dataset for Care Robots",
     image: "/projects/prima-care-dataset.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Machine Vision"],
-    domains: [
-      "Human-Robot Interaction",
-      "Human Activity Recognition",
-      "Multimodal Sensing",
-    ],
+    techniques: ["Human Activity Recognition"],
+    domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "Designed and collected a multimodal sensor dataset capturing how people interact with a care robot, covering 27 real-world activities from 17 participants.",
       "Instrumented a TIAGo robot with 8+ sensor types, from cameras and lidar to wearables and force/torque sensors, to study privacy trade-offs between modalities.",
@@ -224,7 +217,7 @@ export const projects = [
     title: "Predicting User Movement for Safer Human-Robot Interaction",
     image: "/projects/pose-prediction-hri.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Machine Vision"],
+    techniques: ["Computer Vision"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "Built a privacy-preserving system that tracks a person's upper-body pose using only a thermal camera and depth sensor, no RGB video.",
