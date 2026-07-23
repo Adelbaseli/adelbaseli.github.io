@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { projects, techniqueCategories } from "@/lib/data";
 import { categoryMeta } from "@/lib/category-meta";
 import {
@@ -10,6 +10,7 @@ import {
 import { ArrowLeft, Eye, Github, X } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 import MotionWrapper from "./MotionWrapper";
+import CategoryHoverPreview from "./CategoryHoverPreview";
 import { AnimatePresence, motion } from "framer-motion";
 
 type Project = (typeof projects)[number];
@@ -19,10 +20,37 @@ export default function ProjectsSection() {
     null
   );
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+  const [hoverAnchor, setHoverAnchor] = useState<{
+    y: number;
+    side: "left" | "right";
+  } | null>(null);
+  const tileRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  const handleTileEnter = (category: string, index: number) => {
+    const el = tileRefs.current[category];
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    setHoverAnchor({
+      y: rect.top + rect.height / 2,
+      side: index <= 2 ? "left" : "right",
+    });
+    setHoveredCategory(category);
+  };
+
+  const handleTileLeave = () => {
+    setHoveredCategory(null);
+    setHoverAnchor(null);
+  };
 
   const availableCategories = techniqueCategories.filter((category) =>
     projects.some((project) => project.techniques?.includes(category))
   );
+  const hoveredCategoryProjects = hoveredCategory
+    ? projects.filter((project) =>
+        project.techniques?.includes(hoveredCategory)
+      )
+    : [];
   const categoryProjects = selectedCategory
     ? projects.filter((project) =>
         project.techniques?.includes(selectedCategory)
@@ -40,7 +68,7 @@ export default function ProjectsSection() {
         </MotionWrapper>
 
         <MotionWrapper delay={0.1}>
-          <p className="text-muted-foreground mb-8 text-center md:text-left max-w-2xl md:mx-0 mx-auto">
+          <p className="text-muted-foreground mb-8 text-center md:text-left">
             I've worked on applying various AI methods across different
             fields, from perception to human-centered evaluation. Pick an
             area below to see the projects in it.
@@ -63,11 +91,19 @@ export default function ProjectsSection() {
                 return (
                   <motion.button
                     key={category}
+                    ref={(el) => {
+                      tileRefs.current[category] = el;
+                    }}
                     layoutId={`category-card-${category}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.08 }}
-                    onClick={() => setSelectedCategory(category)}
+                    onClick={() => {
+                      handleTileLeave();
+                      setSelectedCategory(category);
+                    }}
+                    onMouseEnter={() => handleTileEnter(category, index)}
+                    onMouseLeave={handleTileLeave}
                     className="group relative flex-1 aspect-[3/10] overflow-hidden text-left text-white"
                   >
                     {meta.image && (
@@ -212,6 +248,18 @@ export default function ProjectsSection() {
           )}
         </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {hoveredCategory && hoverAnchor && (
+          <CategoryHoverPreview
+            key={hoveredCategory}
+            category={hoveredCategory}
+            categoryProjects={hoveredCategoryProjects}
+            anchorY={hoverAnchor.y}
+            side={hoverAnchor.side}
+          />
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {activeProject && (
