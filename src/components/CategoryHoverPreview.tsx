@@ -47,8 +47,9 @@ export default function CategoryHoverPreview({
 
   const rise = Math.min(ARROW_RISE, boxTop - 8);
   const arrowTopY = boxTop - rise;
-  const arrowLeftX = Math.min(tileCenterX, boxCenterX);
-  const arrowRightX = Math.max(tileCenterX, boxCenterX);
+  const HEAD_PAD = 8;
+  const arrowLeftX = Math.min(tileCenterX, boxCenterX) - HEAD_PAD;
+  const arrowRightX = Math.max(tileCenterX, boxCenterX) + HEAD_PAD;
   const arrowWidth = Math.max(arrowRightX - arrowLeftX, 1);
   const tileLocalX = tileCenterX - arrowLeftX;
   const boxLocalX = boxCenterX - arrowLeftX;
