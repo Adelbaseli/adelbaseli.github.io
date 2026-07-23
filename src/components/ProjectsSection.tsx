@@ -22,17 +22,28 @@ export default function ProjectsSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [hoverAnchor, setHoverAnchor] = useState<{
-    y: number;
+    tileCenterX: number;
+    rowTop: number;
+    rowBottom: number;
+    rowLeft: number;
+    rowRight: number;
     side: "left" | "right";
   } | null>(null);
   const tileRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const rowRef = useRef<HTMLDivElement>(null);
 
   const handleTileEnter = (category: string, index: number) => {
-    const el = tileRefs.current[category];
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
+    const tileEl = tileRefs.current[category];
+    const rowEl = rowRef.current;
+    if (!tileEl || !rowEl) return;
+    const tileRect = tileEl.getBoundingClientRect();
+    const rowRect = rowEl.getBoundingClientRect();
     setHoverAnchor({
-      y: rect.top + rect.height / 2,
+      tileCenterX: tileRect.left + tileRect.width / 2,
+      rowTop: rowRect.top,
+      rowBottom: rowRect.bottom,
+      rowLeft: rowRect.left,
+      rowRight: rowRect.right,
       side: index <= 2 ? "left" : "right",
     });
     setHoveredCategory(category);
@@ -79,6 +90,7 @@ export default function ProjectsSection() {
           {!selectedCategory ? (
             <motion.div
               key="categories"
+              ref={rowRef}
               exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.25 } }}
               className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-white/25 rounded-2xl overflow-hidden shadow-lg"
             >
@@ -255,7 +267,11 @@ export default function ProjectsSection() {
             key={hoveredCategory}
             category={hoveredCategory}
             categoryProjects={hoveredCategoryProjects}
-            anchorY={hoverAnchor.y}
+            tileCenterX={hoverAnchor.tileCenterX}
+            rowTop={hoverAnchor.rowTop}
+            rowBottom={hoverAnchor.rowBottom}
+            rowLeft={hoverAnchor.rowLeft}
+            rowRight={hoverAnchor.rowRight}
             side={hoverAnchor.side}
           />
         )}

@@ -8,122 +8,132 @@ type Project = (typeof allProjects)[number];
 interface CategoryHoverPreviewProps {
   category: string;
   categoryProjects: Project[];
-  anchorY: number;
+  tileCenterX: number;
+  rowTop: number;
+  rowBottom: number;
+  rowLeft: number;
+  rowRight: number;
   side: "left" | "right";
 }
 
-const ARROW_WIDTH = 110;
-const ARROW_HEIGHT = 80;
-const BOX_WIDTH = 240;
-const EDGE_GAP = 12;
-
-function ArrowIcon({ side }: { side: "left" | "right" }) {
-  const d =
-    side === "right"
-      ? "M 2 40 H 32 V 12 H 68 V 60 H 96"
-      : "M 108 40 H 78 V 12 H 42 V 60 H 14";
-  const headD =
-    side === "right" ? "M 88 30 L 100 40 L 88 50" : "M 22 30 L 10 40 L 22 50";
-
-  return (
-    <svg
-      width={ARROW_WIDTH}
-      height={ARROW_HEIGHT}
-      viewBox={`0 0 ${ARROW_WIDTH} ${ARROW_HEIGHT}`}
-      fill="none"
-      className="shrink-0 text-indigo-400"
-    >
-      <motion.path
-        d={d}
-        stroke="currentColor"
-        strokeWidth={2.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-      />
-      <motion.path
-        d={headD}
-        stroke="currentColor"
-        strokeWidth={2.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.42, duration: 0.18 }}
-      />
-    </svg>
-  );
-}
+const BOX_WIDTH = 300;
+const EDGE_GAP = 10;
+const ARROW_RISE = 30;
 
 export default function CategoryHoverPreview({
   category,
   categoryProjects,
-  anchorY,
+  tileCenterX,
+  rowTop,
+  rowBottom,
+  rowLeft,
+  rowRight,
   side,
 }: CategoryHoverPreviewProps) {
   if (typeof document === "undefined") return null;
 
-  const containerHeight = Math.max(
-    ARROW_HEIGHT,
-    52 + categoryProjects.length * 46
-  );
-  const viewportHeight =
-    typeof window !== "undefined" ? window.innerHeight : 900;
-  const top = Math.min(
-    Math.max(anchorY - containerHeight / 2, 16),
-    viewportHeight - containerHeight - 16
-  );
+  const viewportW = typeof window !== "undefined" ? window.innerWidth : 1400;
+  const viewportH = typeof window !== "undefined" ? window.innerHeight : 900;
+
+  const boxTop = Math.max(rowTop, 8);
+  const boxBottom = Math.min(rowBottom, viewportH - 8);
+  const boxHeight = Math.max(boxBottom - boxTop, 140);
+
+  const boxLeft =
+    side === "left"
+      ? Math.max(rowLeft - EDGE_GAP - BOX_WIDTH, 8)
+      : Math.min(rowRight + EDGE_GAP, viewportW - BOX_WIDTH - 8);
+  const boxCenterX = boxLeft + BOX_WIDTH / 2;
+
+  const rise = Math.min(ARROW_RISE, boxTop - 8);
+  const arrowTopY = boxTop - rise;
+  const arrowLeftX = Math.min(tileCenterX, boxCenterX);
+  const arrowRightX = Math.max(tileCenterX, boxCenterX);
+  const arrowWidth = Math.max(arrowRightX - arrowLeftX, 1);
+  const tileLocalX = tileCenterX - arrowLeftX;
+  const boxLocalX = boxCenterX - arrowLeftX;
+
+  const linePath = `M ${tileLocalX} ${rise} L ${tileLocalX} 0 L ${boxLocalX} 0 L ${boxLocalX} ${rise}`;
+  const headPath = `M ${boxLocalX - 6} ${rise - 8} L ${boxLocalX} ${rise} L ${boxLocalX + 6} ${rise - 8}`;
 
   return createPortal(
-    <motion.div
-      className="fixed z-[60] flex items-center pointer-events-none"
-      style={{ top, [side]: EDGE_GAP }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.15 } }}
-    >
-      {side === "left" && <ArrowIcon side="left" />}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.92, x: side === "left" ? 12 : -12 }}
-        animate={{ opacity: 1, scale: 1, x: 0 }}
-        transition={{ delay: 0.5, duration: 0.35, ease: "easeOut" }}
-        className="relative overflow-hidden rounded-xl border border-border/50 bg-background/95 shadow-2xl backdrop-blur-md"
-        style={{ width: BOX_WIDTH }}
+    <>
+      <svg
+        className="fixed z-[60] text-indigo-400"
+        style={{
+          top: arrowTopY,
+          left: arrowLeftX,
+          width: arrowWidth,
+          height: rise,
+        }}
+        viewBox={`0 0 ${arrowWidth} ${rise}`}
+        fill="none"
       >
-        <div className="px-3 pt-3 pb-1.5 text-xs font-medium text-muted-foreground">
+        <motion.path
+          d={linePath}
+          stroke="currentColor"
+          strokeWidth={2.5}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        />
+        <motion.path
+          d={headPath}
+          stroke="currentColor"
+          strokeWidth={2.5}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.42, duration: 0.18 }}
+        />
+      </svg>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, x: side === "left" ? 12 : -12 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.15 } }}
+        transition={{ delay: 0.5, duration: 0.35, ease: "easeOut" }}
+        className="fixed z-[60] overflow-hidden rounded-xl border border-border/50 bg-background/95 shadow-2xl backdrop-blur-md"
+        style={{ top: boxTop, left: boxLeft, width: BOX_WIDTH, height: boxHeight }}
+      >
+        <div className="px-4 pt-4 pb-2 text-sm font-semibold text-muted-foreground">
           {category}
         </div>
-        <div className="px-2 pb-2 space-y-1.5">
+        <div className="px-3 pb-3 space-y-3 overflow-hidden">
           {categoryProjects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, x: side === "left" ? 8 : -8 }}
+              initial={{ opacity: 0, x: side === "left" ? 10 : -10 }}
               animate={{
-                opacity: Math.max(1 - i * 0.24, 0.12),
+                opacity: Math.max(1 - i * 0.22, 0.12),
                 x: 0,
               }}
-              transition={{ delay: 0.55 + i * 0.12, duration: 0.3 }}
-              className="flex items-center gap-2 rounded-lg bg-muted/60 p-1.5"
+              transition={{ delay: 0.55 + i * 0.14, duration: 0.3 }}
+              className="overflow-hidden rounded-lg bg-muted/60"
             >
               {project.image && (
                 <img
                   src={project.image}
                   alt=""
-                  className="h-8 w-8 shrink-0 rounded object-cover"
+                  className="h-24 w-full object-cover"
                 />
               )}
-              <span className="text-xs leading-tight line-clamp-2">
-                {project.title}
-              </span>
+              <div className="p-2.5">
+                <span className="text-sm font-medium leading-snug line-clamp-2">
+                  {project.title}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background to-transparent" />
       </motion.div>
-      {side === "right" && <ArrowIcon side="right" />}
-    </motion.div>,
+    </>,
     document.body
   );
 }
