@@ -1,10 +1,9 @@
 import {
-  Activity,
+  BarChart3,
   ScanEye,
   AudioLines,
-  Gamepad2,
   Sparkles,
-  ClipboardList,
+  Gamepad2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,26 +18,24 @@ interface CategoryMeta {
 }
 
 export const categoryMeta: Record<string, CategoryMeta> = {
-  "Human Activity Recognition": {
-    icon: Activity,
-    image: "/categories/human-activity-recognition.jpg",
+  "Data Science": {
+    icon: BarChart3,
+    image: "/categories/data-science.jpg",
   },
   "Computer Vision": {
     icon: ScanEye,
     image: "/categories/computer-vision.svg",
   },
-  "Audio Processing": {
+  "Audio & Speech": {
     icon: AudioLines,
+    image: "/projects/wifi-sleep-posture.png",
   },
-  "Reinforcement Learning": {
-    icon: Gamepad2,
-  },
-  "Agentic AI / LLM / VLM": {
+  "AI Agents & LLMs": {
     icon: Sparkles,
     image: "/projects/multimodal-transfer-learning.png",
   },
-  "User Studies & Statistical Testing": {
-    icon: ClipboardList,
+  "Reinforcement Learning": {
+    icon: Gamepad2,
     image: "/projects/rowing-skill-classification.png",
   },
 };

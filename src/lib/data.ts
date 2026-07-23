@@ -113,12 +113,11 @@ export const skills = {
 // category cards; a project can belong to more than one. Order controls the
 // order the category cards appear in (only categories with >=1 project show).
 export const techniqueCategories = [
-  "Human Activity Recognition",
+  "Data Science",
   "Computer Vision",
-  "Audio Processing",
+  "Audio & Speech",
+  "AI Agents & LLMs",
   "Reinforcement Learning",
-  "Agentic AI / LLM / VLM",
-  "User Studies & Statistical Testing",
 ];
 
 // Level 2: the application domain, shown as small badges on each project
@@ -137,7 +136,7 @@ export const projects = [
     title: "Privacy-Preserving Activity Recognition for Human-Robot Interaction",
     image: "/projects/lidar-har-hri.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Human Activity Recognition"],
+    techniques: ["Data Science"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "A multimodal deep-learning system that lets a care robot recognize what a person is doing around it, from handing over an object to commanding it with gestures.",
@@ -157,7 +156,7 @@ export const projects = [
     title: "PriMA-Care: Privacy-Preserving Multimodal Dataset for Care Robots",
     image: "/projects/prima-care-dataset.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Human Activity Recognition"],
+    techniques: ["Data Science"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "Designed and collected a multimodal sensor dataset capturing how people interact with a care robot, covering 27 real-world activities from 17 participants.",
@@ -177,7 +176,7 @@ export const projects = [
     title: "Transfer Learning for Privacy-Preserving Activity Recognition",
     image: "/projects/multimodal-transfer-learning.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Agentic AI / LLM / VLM"],
+    techniques: ["AI Agents & LLMs"],
     domains: ["Human Activity Recognition", "Multimodal Sensing"],
     description: [
       "Compared large general-purpose multimodal models against activity-recognition-specific models for recognizing what a person is doing around a robot.",
@@ -197,7 +196,7 @@ export const projects = [
     title: "Wi-Fi-Based Sleep Posture Monitoring",
     image: "/projects/wifi-sleep-posture.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["User Studies & Statistical Testing"],
+    techniques: ["Audio & Speech"],
     domains: ["Human Activity Recognition", "Multimodal Sensing"],
     description: [
       "Built a sleep posture monitoring system that uses ordinary Wi-Fi signals instead of cameras, so it works in the dark and needs no wearables.",
@@ -237,7 +236,7 @@ export const projects = [
     title: "Can Machine Learning Distinguish Elite from Non-Elite Rowers?",
     image: "/projects/rowing-skill-classification.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["User Studies & Statistical Testing"],
+    techniques: ["Reinforcement Learning"],
     domains: ["Sports Science", "Human Activity Recognition"],
     description: [
       "Built machine learning models (MLPs, CNNs, GRUs) that classify rowers as elite or non-elite from ergometer motion-capture data.",

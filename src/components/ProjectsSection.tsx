@@ -68,7 +68,7 @@ export default function ProjectsSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.08 }}
                     onClick={() => setSelectedCategory(category)}
-                    className="group relative flex-1 aspect-[3/4] overflow-hidden text-left text-white"
+                    className="group relative flex-1 aspect-[3/10] overflow-hidden text-left text-white"
                   >
                     {meta.image && (
                       <img
