@@ -125,14 +125,14 @@ export default function ProjectsSection() {
                         className="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-hover:scale-110 group-hover:brightness-50"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/0 opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/0 opacity-70 transition-opacity duration-500 group-hover:from-black/90 group-hover:via-black/40 group-hover:opacity-100" />
                     <div className="absolute inset-0 flex flex-col justify-end p-5">
                       <div className="opacity-0 translate-y-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                        <Icon className="h-6 w-6 mb-2" />
-                        <h3 className="text-lg font-semibold leading-tight">
+                        <Icon className="h-7 w-7 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" />
+                        <h3 className="text-2xl font-bold leading-tight tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
                           {category}
                         </h3>
-                        <p className="text-xs text-white/80 mt-1">
+                        <p className="text-sm text-white/90 mt-1 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                           {count} {count === 1 ? "project" : "projects"}
                         </p>
                       </div>

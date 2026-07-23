@@ -60,7 +60,7 @@ export default function CategoryHoverPreview({
   return createPortal(
     <>
       <svg
-        className="fixed z-[60] text-indigo-400"
+        className="fixed z-[60] text-indigo-400 pointer-events-none"
         style={{
           top: arrowTopY,
           left: arrowLeftX,
@@ -99,7 +99,7 @@ export default function CategoryHoverPreview({
         animate={{ opacity: 1, scale: 1, x: 0 }}
         exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.15 } }}
         transition={{ delay: 0.5, duration: 0.35, ease: "easeOut" }}
-        className="fixed z-[60] overflow-hidden rounded-xl border border-border/50 bg-background/95 shadow-2xl backdrop-blur-md"
+        className="fixed z-[60] overflow-hidden rounded-xl border border-border/50 bg-background/95 shadow-2xl backdrop-blur-md pointer-events-none"
         style={{ top: boxTop, left: boxLeft, width: BOX_WIDTH, height: boxHeight }}
       >
         <div className="px-4 pt-4 pb-2 text-sm font-semibold text-muted-foreground">
