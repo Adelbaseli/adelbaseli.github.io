@@ -79,7 +79,7 @@ export default function SkillsSection() {
       id="skills"
       className="py-12 bg-gradient-to-b from-background to-muted/20"
     >
-      <div className="container max-w-4xl mx-auto px-6 md:px-4">
+      <div className="container max-w-[1344px] mx-auto px-6 md:px-4">
         <MotionWrapper>
           <h2 className="text-2xl font-bold mb-8 text-center md:text-left">
             🛠️ Skills
@@ -87,7 +87,7 @@ export default function SkillsSection() {
         </MotionWrapper>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

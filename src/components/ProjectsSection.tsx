@@ -32,7 +32,7 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className="py-12 relative">
-      <div className="container max-w-4xl mx-auto px-6 md:px-4">
+      <div className="container max-w-[1344px] mx-auto px-6 md:px-4">
         <MotionWrapper>
           <h2 className="text-2xl font-bold mb-3 text-center md:text-left">
             🚀 Projects
@@ -128,7 +128,7 @@ export default function ProjectsSection() {
                 </motion.button>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {categoryProjects.map((project, index) => (
                   <motion.div
                     key={project.title}
