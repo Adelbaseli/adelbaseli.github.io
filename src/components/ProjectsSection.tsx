@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { projects, techniqueCategories } from "@/lib/data";
 import { categoryMeta } from "@/lib/category-meta";
 import {
@@ -10,15 +10,59 @@ import {
 import { ArrowLeft, Eye, Github, X } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 import MotionWrapper from "./MotionWrapper";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 
 type Project = (typeof projects)[number];
+
+// Experimental: as you scroll through the category tiles, they grow to
+// cover the full browser viewport, then release back into normal flow.
+function useFullscreenGrowScale(
+  pinRef: React.RefObject<HTMLDivElement | null>,
+  boxRef: React.RefObject<HTMLDivElement | null>
+) {
+  const [growScale, setGrowScale] = useState(1);
+  const { scrollYProgress } = useScroll({
+    target: pinRef,
+    offset: ["start start", "end end"],
+  });
+
+  useEffect(() => {
+    const measure = () => {
+      if (!boxRef.current) return;
+      const { offsetWidth, offsetHeight } = boxRef.current;
+      if (!offsetWidth || !offsetHeight) return;
+      const scaleToCover = Math.max(
+        window.innerWidth / offsetWidth,
+        window.innerHeight / offsetHeight
+      );
+      setGrowScale(scaleToCover);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [boxRef]);
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [1, growScale, growScale]
+  );
+  const borderRadius = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [16, 0, 0]
+  );
+  return { scale, borderRadius };
+}
 
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     null
   );
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const boxRef = useRef<HTMLDivElement>(null);
+  const { scale, borderRadius } = useFullscreenGrowScale(pinRef, boxRef);
 
   const availableCategories = techniqueCategories.filter((category) =>
     projects.some((project) => project.techniques?.includes(category))
@@ -51,10 +95,18 @@ export default function ProjectsSection() {
           {!selectedCategory ? (
             <motion.div
               key="categories"
-              exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.25 } }}
-              className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-white/25 rounded-2xl overflow-hidden shadow-lg"
+              exit={{ opacity: 0, transition: { duration: 0.25 } }}
+              ref={pinRef}
+              className="relative"
+              style={{ height: "250vh" }}
             >
-              {availableCategories.map((category, index) => {
+              <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+                <motion.div
+                  ref={boxRef}
+                  style={{ scale, borderRadius }}
+                  className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-white/25 overflow-hidden shadow-lg w-full max-w-4xl mx-6"
+                >
+                  {availableCategories.map((category, index) => {
                 const meta = categoryMeta[category];
                 const Icon = meta.icon;
                 const count = projects.filter((p) =>
@@ -91,7 +143,9 @@ export default function ProjectsSection() {
                     </div>
                   </motion.button>
                 );
-              })}
+                  })}
+                </motion.div>
+              </div>
             </motion.div>
           ) : (
             <motion.div
