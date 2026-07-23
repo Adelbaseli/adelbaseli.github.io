@@ -9,11 +9,8 @@ import {
 
 interface CategoryMeta {
   icon: LucideIcon;
-  // A representative background image for the category tile. Either a real
-  // photo/figure reused from a project in that category, or (for Computer
-  // Vision) an original illustration — never a stock image with someone
-  // else's branding baked in. Add one here before a category's first
-  // project ships, or its tile will render without a background image.
+  // A representative background image for the category tile, pre-cropped
+  // to the tile's 3:10 aspect ratio (see public/categories/).
   image?: string;
 }
 
@@ -24,18 +21,18 @@ export const categoryMeta: Record<string, CategoryMeta> = {
   },
   "Computer Vision": {
     icon: ScanEye,
-    image: "/categories/computer-vision.svg",
+    image: "/categories/computer-vision.jpg",
   },
   "Audio & Speech": {
     icon: AudioLines,
-    image: "/projects/wifi-sleep-posture.png",
+    image: "/categories/audio-speech.jpg",
   },
   "AI Agents & LLMs": {
     icon: Sparkles,
-    image: "/projects/multimodal-transfer-learning.png",
+    image: "/categories/ai-agents-llms.jpg",
   },
   "Reinforcement Learning": {
     icon: Gamepad2,
-    image: "/projects/rowing-skill-classification.png",
+    image: "/categories/reinforcement-learning.jpg",
   },
 };
