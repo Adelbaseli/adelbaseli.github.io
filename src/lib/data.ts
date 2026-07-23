@@ -16,10 +16,11 @@ export const workExperience = [
     position: "Applied ML Engineer & AI Researcher",
     period: "2024 - Present",
     achievements: [
-      "Design and train deep learning models for multimodal data (time-series, vision, and audio) to support research in psychology, sports science, and healthcare.",
-      "Build sensor fusion pipelines combining RNNs, CNNs, and Transformers to extract insights from multimodal sensing data.",
-      "Develop audio-based ML models and cross-modal signal processing methods for real-world research applications.",
-      "Partner directly with domain experts to translate research questions into deployable ML solutions.",
+      "Build deep learning models across vision, audio, and time-series data to support research in psychology, sports science, and healthcare.",
+      "Develop audio ML pipelines for speaker detection, noise removal, and signal analysis.",
+      "Apply vision-language and large language models to improve robot perception and context-aware navigation in shared human environments.",
+      "Build agentic AI workflows with LangGraph and LangChain for automated reasoning and task execution.",
+      "Design statistical analysis pipelines, including hypothesis testing and A/B testing, and advise researchers across disciplines on applying ML methods.",
     ],
   },
   {
@@ -28,32 +29,34 @@ export const workExperience = [
     position: "PhD Fellow, AI / Informatics",
     period: "2020 - 2024",
     achievements: [
-      "Designed and trained deep learning models for human activity recognition, enabling accurate classification and event detection from sensor data.",
-      "Built multimodal sensing systems fusing vision and LiDAR sensors to improve activity recognition accuracy and robustness.",
-      "Delivered end-to-end ML/DL pipelines, from dataset collection and preprocessing to model training and evaluation.",
-      "Applied deep learning to real-world, noisy sensor data across human-robot interaction and activity monitoring use cases.",
+      "Worked with multimodal sensing data (RGB, thermal, depth, LiDAR, wearable sensors) for human activity and behavior analysis.",
+      "Designed sensor fusion pipelines combining feature-, data-, and decision-level fusion across heterogeneous sensing modalities.",
+      "Developed reinforcement learning approaches for adaptive decision-making and robot control.",
+      "Delivered end-to-end ML pipelines, from data collection through training to real-world evaluation and user studies.",
     ],
   },
-  // {
-  //   company: "Sharif Technology Systems",
-  //   location: "Tehran, Iran",
-  //   position: "R&D Engineer",
-  //   period: "2016 - 2018",
-  //   achievements: [
-  //     "Developed machine learning, deep learning, and reinforcement learning algorithms for control systems.",
-  //     "Hands-on experience with sensors and control hardware.",
-  //   ],
-  // },
-  // {
-  //   company: "Djavad Mowafaghian Centre",
-  //   location: "Tehran, Iran",
-  //   position: "Software Engineer",
-  //   period: "2018 - 2020",
-  //   achievements: [
-  //     "Contributed to the design and development of rehabilitation systems involving actuators and sensors.",
-  //     "Hands-on experience integrating sensor data with control software.",
-  //   ],
-  // },
+  {
+    company: "Sharif Technology Services Complex",
+    location: "Tehran, Iran",
+    position: "Software Engineer",
+    period: "2018 - 2020",
+    achievements: [
+      "Implemented software-, processor-, and hardware-in-the-loop (SIL/PIL/HIL) test environments for control systems.",
+      "Applied sensor and data fusion techniques (EKF, UKF) for dynamic systems analysis.",
+      "Developed ML, DL, and RL algorithms to support control system design and validation.",
+    ],
+  },
+  {
+    company: "Djavad Mowafaghian Center for Intelligent NeuroRehabilitation Technologies",
+    location: "Tehran, Iran",
+    position: "R&D Engineer",
+    period: "2016 - 2018",
+    achievements: [
+      "Designed real-time control software for robotic rehabilitation systems, including the SBARA balance-assessment and rehabilitation robot.",
+      "Integrated sensors, actuators, and embedded hardware into real-time robotic prototypes.",
+      "Implemented real-time controllers in MATLAB/Simulink and xPC Target for human-interactive robotic platforms.",
+    ],
+  },
 ];
 
 export const education = [
