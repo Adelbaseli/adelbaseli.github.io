@@ -10,12 +10,13 @@ interface Node {
 
 // Density-based rather than a fixed count: this canvas spans Hero + Experience
 // + Skills combined, which is much taller than one viewport, so a fixed count
-// would look sparse. ~1 node per 18,000px^2 matches a good density at normal
-// viewport size; clamp so very tall/short pages stay reasonable.
-const AREA_PER_NODE = 18000;
-const MIN_NODES = 50;
-const MAX_NODES = 220;
-const LINK_DISTANCE = 150;
+// would look sparse. ~1 node per 8,000px^2 gives a dense, interconnected mesh
+// rather than a sparse "stars in the sky" look; clamp so very tall/short pages
+// stay reasonable.
+const AREA_PER_NODE = 8000;
+const MIN_NODES = 70;
+const MAX_NODES = 380;
+const LINK_DISTANCE = 190;
 const NODE_COLOR = "99, 102, 241"; // indigo-500
 const LINK_COLOR = "34, 211, 238"; // cyan-400
 
@@ -138,6 +139,11 @@ export default function NetworkBackground() {
       ref={containerRef}
       className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       aria-hidden="true"
+      style={{
+        maskImage: "linear-gradient(to right, black 0%, black 45%, transparent 90%)",
+        WebkitMaskImage:
+          "linear-gradient(to right, black 0%, black 45%, transparent 90%)",
+      }}
     >
       <canvas ref={canvasRef} className="block" />
     </div>
