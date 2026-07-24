@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { projects, techniqueCategories } from "@/lib/data";
 import { CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Eye, ExternalLink, X } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 import MotionWrapper from "./MotionWrapper";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 
 type Project = (typeof projects)[number];
 
 export default function ProjectsSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(sectionRef, { margin: "200px 0px" });
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isInView) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isInView]);
 
   const availableTags = techniqueCategories.filter((tag) =>
     projects.some((project) => project.techniques?.includes(tag))
@@ -41,7 +54,22 @@ export default function ProjectsSection() {
     .sort((a, b) => rank(a) - rank(b));
 
   return (
-    <section id="projects" className="py-12 relative">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="py-12 relative overflow-hidden"
+    >
+      <div className="absolute inset-0 -z-10">
+        <video
+          ref={videoRef}
+          src="/videos/prima-care-bg.mp4"
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/55" />
+      </div>
       <div className="container max-w-[1344px] mx-auto px-6 md:px-4">
         <MotionWrapper>
           <h2 className="text-2xl font-bold mb-3 text-center md:text-left">

@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 .claude/
 .vscode/
+
+# raw source video recordings - too large for git, only trimmed/compressed
+# derivatives (public/videos/) get committed
+public/*.mkv
+public/*.mp4
+public/*.mov
