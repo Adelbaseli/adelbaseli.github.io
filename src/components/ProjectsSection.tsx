@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { projects, techniqueCategories } from "@/lib/data";
-import {
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Eye, Github, X } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 import MotionWrapper from "./MotionWrapper";
@@ -27,12 +22,22 @@ export default function ProjectsSection() {
     );
   };
 
-  const visibleProjects =
+  const rank = (project: Project) =>
+    project.title.includes("(Ongoing)")
+      ? 2
+      : project.techniques?.includes("Reinforcement Learning")
+        ? 1
+        : 0;
+
+  const visibleProjects = (
     activeTags.length === 0
       ? projects
       : projects.filter((project) =>
           project.techniques?.some((t) => activeTags.includes(t))
-        );
+        )
+  )
+    .slice()
+    .sort((a, b) => rank(a) - rank(b));
 
   return (
     <section id="projects" className="py-12 relative">
@@ -82,7 +87,7 @@ export default function ProjectsSection() {
           </div>
         </MotionWrapper>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visibleProjects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -99,7 +104,7 @@ export default function ProjectsSection() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-32 object-cover transition-all duration-700 ease-out group-hover:scale-125 group-hover:-rotate-2 group-hover:brightness-50"
+                      className="w-full h-56 object-cover transition-all duration-700 ease-out group-hover:scale-125 group-hover:-rotate-2 group-hover:brightness-50"
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <span className="flex translate-y-3 items-center gap-2 text-sm font-medium text-white opacity-0 transition-all duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100">
@@ -113,18 +118,6 @@ export default function ProjectsSection() {
                   <CardTitle className="text-sm leading-snug text-center md:text-left group-hover:text-indigo-500 transition-colors duration-300">
                     {project.title}
                   </CardTitle>
-                  {project.domains && project.domains.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 justify-center md:justify-start pt-1">
-                      {project.domains.map((domain) => (
-                        <span
-                          key={domain}
-                          className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground border border-border/50"
-                        >
-                          {domain}
-                        </span>
-                      ))}
-                    </div>
-                  )}
                 </CardHeader>
                 <CardContent className="flex-grow py-2">
                   <ul className="list-disc ml-4 space-y-1 text-xs">
@@ -135,20 +128,6 @@ export default function ProjectsSection() {
                     ))}
                   </ul>
                 </CardContent>
-                {project.github && (
-                  <CardFooter className="flex justify-center md:justify-start items-center border-t border-border/30 bg-gradient-to-r from-indigo-500/5 to-cyan-500/5 py-2">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center text-xs text-muted-foreground hover:text-indigo-500 transition-colors"
-                    >
-                      <Github className="h-3.5 w-3.5 mr-1.5" />
-                      View on GitHub
-                    </a>
-                  </CardFooter>
-                )}
               </GlassCard>
             </motion.div>
           ))}

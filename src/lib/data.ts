@@ -112,19 +112,21 @@ export const skills = {
   ],
 };
 
-// Level 1: the AI technique/method a project is built around. Shown as big
-// category cards; a project can belong to more than one. Order controls the
-// order the category cards appear in (only categories with >=1 project show).
+// The technique/method a project is built around. Shown as filter tag
+// chips above the project grid; a project can belong to more than one.
+// Order controls the order the chips appear in (only techniques with
+// >=1 matching project show).
 export const techniqueCategories = [
-  "Data Science",
+  "Time Series Analysis",
   "Computer Vision",
   "Audio & Speech",
-  "AI Agents & LLMs",
   "Reinforcement Learning",
+  "AI Agents & LLMs",
 ];
 
-// Level 2: the application domain, shown as small badges on each project
-// card once you're browsing inside a technique category.
+// The application domain a project belongs to. Kept in the data model and
+// shown in the project detail modal, but no longer rendered on the compact
+// project cards (removed to free up space for bigger images).
 export const domainTags = [
   "Human-Robot Interaction",
   "Human Activity Recognition",
@@ -140,7 +142,7 @@ export const projects = [
     title: "Privacy-Preserving Activity Recognition for Human-Robot Interaction",
     image: "/projects/lidar-har-hri.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Data Science"],
+    techniques: ["Time Series Analysis"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "A multimodal deep-learning system that lets a care robot recognize what a person is doing around it, from handing over an object to commanding it with gestures.",
@@ -160,7 +162,7 @@ export const projects = [
     title: "PriMA-Care: Privacy-Preserving Multimodal Dataset for Care Robots",
     image: "/projects/prima-care-dataset.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Data Science"],
+    techniques: ["Time Series Analysis"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "Designed and collected a multimodal sensor dataset capturing how people interact with a care robot, covering 27 real-world activities from 17 participants.",
@@ -200,7 +202,7 @@ export const projects = [
     title: "Wi-Fi-Based Sleep Posture Monitoring",
     image: "/projects/wifi-sleep-posture.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Data Science"],
+    techniques: ["Time Series Analysis"],
     domains: ["Human Activity Recognition", "Multimodal Sensing"],
     description: [
       "Built a sleep posture monitoring system that uses ordinary Wi-Fi signals instead of cameras, so it works in the dark and needs no wearables.",
@@ -240,7 +242,7 @@ export const projects = [
     title: "Can Machine Learning Distinguish Elite from Non-Elite Rowers?",
     image: "/projects/rowing-skill-classification.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Data Science"],
+    techniques: ["Time Series Analysis"],
     domains: ["Sports Science", "Human Activity Recognition"],
     description: [
       "Built machine learning models (MLPs, CNNs, GRUs) that classify rowers as elite or non-elite from ergometer motion-capture data.",
@@ -279,7 +281,7 @@ export const projects = [
     title: "Privacy vs. Utility Trade-offs Across Vision-Based Sensors for Care Robots",
     image: "/projects/vision-sensor-privacy-utility-tradeoff.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Data Science"],
+    techniques: ["Time Series Analysis"],
     domains: ["Human-Robot Interaction", "Psychology"],
     description: [
       "Ran a technical and user-study comparison of RGB, thermal (color and mono-color), and depth sensors for monitoring people around care robots.",
@@ -374,7 +376,7 @@ export const projects = [
     title: "Wrist-Worn Gesture Recognition for Camera-Free Robot Commands",
     image: "/projects/wrist-imu-gesture-recognition.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Data Science"],
+    techniques: ["Time Series Analysis"],
     domains: ["Human Activity Recognition"],
     description: [
       "Built a privacy-preserving gesture recognition system that lets people command a robot using simple hand and arm movements, with no cameras at all.",
