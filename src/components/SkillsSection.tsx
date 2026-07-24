@@ -62,6 +62,11 @@ const skillCategories = [
     items: skills.aiAndMachineLearning,
   },
   {
+    icon: "🧠",
+    title: "ML Frameworks",
+    items: skills.mlFrameworks,
+  },
+  {
     icon: "🗄️",
     title: "Data & Storage",
     items: skills.dataAndStorage,

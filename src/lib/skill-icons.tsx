@@ -9,6 +9,7 @@ import {
   SiFastapi,
   SiNumpy,
   SiPandas,
+  SiPostgresql,
   SiDatabricks,
   SiDocker,
   SiMlflow,
@@ -25,6 +26,7 @@ import {
   MessageSquare,
   TreePine,
   LineChart,
+  AreaChart,
   Container,
   Workflow,
   Terminal,
@@ -59,11 +61,12 @@ export const skillMeta: Record<string, SkillMeta> = {
   TensorFlow: { icon: SiTensorflow, color: "#FF6F00" },
   "Scikit-learn": { icon: SiScikitlearn, color: "#F7931E" },
   XGBoost: { icon: TreePine, color: "#16A34A" },
-  FastAPI: { icon: SiFastapi, color: "#009688" },
 
   NumPy: { icon: SiNumpy, color: "#4DABCF" },
   Pandas: { icon: SiPandas, color: "#8250DF" },
   Matplotlib: { icon: LineChart, color: "#1F77B4" },
+  Seaborn: { icon: AreaChart, color: "#4C72B0" },
+  PostgreSQL: { icon: SiPostgresql, color: "#4169E1" },
   Databricks: { icon: SiDatabricks, color: "#FF3621" },
 
   Docker: { icon: SiDocker, color: "#2496ED" },
@@ -72,6 +75,7 @@ export const skillMeta: Record<string, SkillMeta> = {
   "Microsoft Azure": { icon: TbBrandAzure, color: "#0078D4" },
   AWS: { icon: FaAws, color: "#FF9900" },
   MLflow: { icon: SiMlflow, color: "#0194E2" },
+  FastAPI: { icon: SiFastapi, color: "#009688" },
   "CI/CD": { icon: Workflow, color: "#22C55E" },
 
   Git: { icon: SiGit, color: "#F05032" },
