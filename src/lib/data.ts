@@ -162,7 +162,7 @@ export const projects = [
     title: "PriMA-Care: Privacy-Preserving Multimodal Dataset for Care Robots",
     image: "/projects/prima-care-dataset.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Time Series Analysis"],
+    techniques: ["Computer Vision"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
       "Designed and collected a multimodal sensor dataset capturing how people interact with a care robot, covering 27 real-world activities from 17 participants.",
@@ -281,7 +281,7 @@ export const projects = [
     title: "Privacy vs. Utility Trade-offs Across Vision-Based Sensors for Care Robots",
     image: "/projects/vision-sensor-privacy-utility-tradeoff.png",
     github: "https://github.com/Adelbaseli",
-    techniques: ["Time Series Analysis"],
+    techniques: ["Computer Vision"],
     domains: ["Human-Robot Interaction", "Psychology"],
     description: [
       "Ran a technical and user-study comparison of RGB, thermal (color and mono-color), and depth sensors for monitoring people around care robots.",
@@ -483,6 +483,25 @@ export const projects = [
       "Compared the CRNN against a classic energy/zero-crossing-rate (ZCR) digital-signal-processing baseline to quantify the benefit of the learned model.",
       "Checkpoint 2: exported the trained model to ONNX and built a real-time browser demo that runs voice activity detection directly on microphone input via onnxruntime-web.",
       "Currently audio-only; a planned lip-fusion extension would add MediaPipe Face Landmarker lip-motion tracking as a second input stream for added robustness in noisy, multi-speaker settings.",
+    ],
+  },
+  {
+    title: "LLM/VLM-Guided Fuzzy MPC Tuning for Human-Aware Robot Navigation (Ongoing)",
+    image: "/projects/agentic-llm-vlm-mpc-navigation.png",
+    github: "https://github.com/Adelbaseli",
+    techniques: ["AI Agents & LLMs"],
+    domains: ["Human-Robot Interaction"],
+    description: [
+      "Ongoing project combining a vision-language model (VLM) and large language model (LLM) with a fuzzy-logic layer to tune a Model Predictive Controller's parameters in real time for safer robot navigation around people.",
+      "A YOLO-based object detector and VLM analyze the scene (split into a 9-region grid) to assess path status, collision risk, and pedestrian motion direction, feeding a trajectory-prediction module and an LLM that adjusts the MPC's cost-function weights and constraints on the fly.",
+      "Also developing a separate agentic AI system built with LangChain to orchestrate this pipeline, still in progress.",
+    ],
+    details: [
+      "Uses a YOLO object detector plus a vision-language model to interpret the robot's camera view, dividing it into a 9-region grid and outputting each detected object's type, region, distance, motion direction, path status, and a risk level.",
+      "Feeds a trajectory-prediction module (a transformer-style encoder-decoder) that forecasts nearby pedestrians' future paths.",
+      "An LLM, guided by a fuzzy-logic layer, interprets the combined risk/trajectory information and adjusts the MPC's setpoint and collision cost-function weights, generates new waypoints, and can trigger a verbal safety alert when risk is high.",
+      "Targets human-aware navigation: keeping a mobile robot's path efficient in open corridors while dynamically becoming more cautious as people get close.",
+      "In parallel, developing an agentic AI system using LangChain to orchestrate the perception-to-control pipeline; both the navigation framework and the agentic wrapper are still ongoing work.",
     ],
   },
 ];
