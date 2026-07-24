@@ -66,7 +66,7 @@ export default function ProjectsSection() {
           muted
           loop
           playsInline
-          className="h-full w-full object-cover blur-sm grayscale"
+          className="h-full w-full object-cover blur-sm saturate-50"
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
@@ -121,7 +121,8 @@ export default function ProjectsSection() {
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.3, delay: (index % 8) * 0.05 }}
             >
               <GlassCard
@@ -144,7 +145,7 @@ export default function ProjectsSection() {
                   </div>
                 )}
                 <CardHeader className="bg-gradient-to-r from-indigo-500/5 to-cyan-500/5 py-3">
-                  <CardTitle className="text-sm leading-snug text-center md:text-left group-hover:text-indigo-500 transition-colors duration-300">
+                  <CardTitle className="text-sm font-bold leading-snug text-center md:text-left group-hover:text-indigo-500 transition-colors duration-300">
                     {project.title}
                   </CardTitle>
                 </CardHeader>

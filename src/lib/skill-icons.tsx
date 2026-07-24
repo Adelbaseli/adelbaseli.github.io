@@ -16,7 +16,6 @@ import {
   SiGit,
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
-import { TbBrandAzure } from "react-icons/tb";
 import {
   Brain,
   Layers,
@@ -72,7 +71,6 @@ export const skillMeta: Record<string, SkillMeta> = {
   Docker: { icon: SiDocker, color: "#2496ED" },
   Singularity: { icon: Container, color: "#64748B" },
   Apptainer: { icon: Container, color: "#64748B" },
-  "Microsoft Azure": { icon: TbBrandAzure, color: "#0078D4" },
   AWS: { icon: FaAws, color: "#FF9900" },
   MLflow: { icon: SiMlflow, color: "#0194E2" },
   FastAPI: { icon: SiFastapi, color: "#009688" },

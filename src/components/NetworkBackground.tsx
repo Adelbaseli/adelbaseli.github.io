@@ -17,7 +17,7 @@ const AREA_PER_NODE = 8000;
 const MIN_NODES = 70;
 const MAX_NODES = 380;
 const LINK_DISTANCE = 190;
-const DARK_COLOR = "255, 255, 255";
+const DARK_COLOR = "205, 210, 222"; // soft light grey, dimmer than pure white
 const LIGHT_COLOR = "15, 23, 42"; // slate-900, reads against the light theme
 
 export default function NetworkBackground() {
@@ -56,12 +56,12 @@ export default function NetworkBackground() {
         MAX_NODES,
         Math.max(MIN_NODES, Math.round((width * height) / AREA_PER_NODE))
       );
-      // Sample x from a distribution whose density decreases linearly from
-      // left (densest) to right (sparsest), instead of a uniform spread -
-      // this is an actual density gradient, not just an opacity fade.
+      // Sample both x and y from a distribution that's densest at the
+      // top-left corner and decreases going right and down - an actual
+      // density gradient (not just an opacity fade over a uniform mesh).
       nodesRef.current = Array.from({ length: nodeCount }, () => ({
         x: width * (1 - Math.sqrt(1 - Math.random())),
-        y: Math.random() * height,
+        y: height * (1 - Math.sqrt(1 - Math.random())),
         vx: (Math.random() - 0.5) * 0.25,
         vy: (Math.random() - 0.5) * 0.25,
       }));
@@ -114,23 +114,36 @@ export default function NetworkBackground() {
         if (node.y <= 0 || node.y >= height) node.vy *= -1;
       }
 
-      // Track each node's two closest neighbors as we go, so we can force a
-      // connection to them even when they're farther than LINK_DISTANCE -
+      // Track each node's three closest neighbors as we go, so we can force
+      // a connection to them even when they're farther than LINK_DISTANCE -
       // this keeps the whole thing reading as one connected mesh instead of
       // several separate clumps of nodes.
-      const nearestDist1 = new Array(n).fill(Infinity);
-      const nearestIdx1 = new Array(n).fill(-1);
-      const nearestDist2 = new Array(n).fill(Infinity);
-      const nearestIdx2 = new Array(n).fill(-1);
+      const nearestDist = [
+        new Array(n).fill(Infinity),
+        new Array(n).fill(Infinity),
+        new Array(n).fill(Infinity),
+      ];
+      const nearestIdx = [
+        new Array(n).fill(-1),
+        new Array(n).fill(-1),
+        new Array(n).fill(-1),
+      ];
       const updateNearest = (i: number, j: number, dist: number) => {
-        if (dist < nearestDist1[i]) {
-          nearestDist2[i] = nearestDist1[i];
-          nearestIdx2[i] = nearestIdx1[i];
-          nearestDist1[i] = dist;
-          nearestIdx1[i] = j;
-        } else if (dist < nearestDist2[i]) {
-          nearestDist2[i] = dist;
-          nearestIdx2[i] = j;
+        if (dist < nearestDist[0][i]) {
+          nearestDist[2][i] = nearestDist[1][i];
+          nearestIdx[2][i] = nearestIdx[1][i];
+          nearestDist[1][i] = nearestDist[0][i];
+          nearestIdx[1][i] = nearestIdx[0][i];
+          nearestDist[0][i] = dist;
+          nearestIdx[0][i] = j;
+        } else if (dist < nearestDist[1][i]) {
+          nearestDist[2][i] = nearestDist[1][i];
+          nearestIdx[2][i] = nearestIdx[1][i];
+          nearestDist[1][i] = dist;
+          nearestIdx[1][i] = j;
+        } else if (dist < nearestDist[2][i]) {
+          nearestDist[2][i] = dist;
+          nearestIdx[2][i] = j;
         }
       };
 
@@ -154,13 +167,13 @@ export default function NetworkBackground() {
       }
 
       for (let i = 0; i < n; i++) {
-        for (const j of [nearestIdx1[i], nearestIdx2[i]]) {
+        for (const j of [nearestIdx[0][i], nearestIdx[1][i], nearestIdx[2][i]]) {
           if (j === -1) continue;
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist >= LINK_DISTANCE) {
-            ctx.strokeStyle = `rgba(${color}, 0.12)`;
+            ctx.strokeStyle = `rgba(${color}, 0.16)`;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
