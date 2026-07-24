@@ -139,26 +139,6 @@ export const domainTags = [
 
 export const projects = [
   {
-    title: "Privacy-Preserving Activity Recognition for Human-Robot Interaction",
-    image: "/projects/lidar-har-hri.png",
-    github: "https://github.com/Adelbaseli",
-    techniques: ["Time Series Analysis"],
-    domains: ["Human-Robot Interaction", "Multimodal Sensing"],
-    description: [
-      "A multimodal deep-learning system that lets a care robot recognize what a person is doing around it, from handing over an object to commanding it with gestures.",
-      "Combines 3D Lidar with a wrist-worn wearable and the robot's force/torque sensors, so no cameras or personally identifiable data are needed.",
-      "Reaches 80%+ recognition accuracy across 9 activities by fusing all three sensors, using CNN, LSTM, Seq2Seq, and PointNet++ models.",
-    ],
-    details: [
-      "Designed separate deep-learning models per sensor: a ConvLSTM network for the wearable and force/torque time-series data, and a PointNet++ network for the 3D Lidar point clouds.",
-      "Explored two ways to merge the sensors: combining raw data early (data-level fusion) versus combining each model's learned features (feature-level fusion) through a Seq2Seq mechanism for the Lidar stream.",
-      "Trained and evaluated the models on 9 real human-robot interaction activities, e.g. giving an object, holding the robot's hand while walking, stopping it, commanding it to rotate, captured on a TIAGo robot.",
-      "Feature-level fusion of all three sensors was the clear winner, reaching 80.73% accuracy, well above any single sensor or a two-sensor combination.",
-      "Every sensor was chosen specifically for being privacy-preserving, so the system understands user activity without capturing faces, video, or other identifiable data, which matters for home and healthcare settings.",
-      "Trained large point-cloud models efficiently despite heavy compute demands, by extracting only the relevant, moving regions of each Lidar scan.",
-    ],
-  },
-  {
     title: "PriMA-Care: Privacy-Preserving Multimodal Dataset for Care Robots",
     image: "/projects/prima-care-dataset.png",
     github: "https://github.com/Adelbaseli",
@@ -176,6 +156,26 @@ export const projects = [
       "Built to let researchers directly compare how well different sensor modalities, including privacy-preserving ones like lidar and IMU, perform on the same activities relative to conventional RGB cameras.",
       "Used as the evaluation benchmark for several follow-up projects on this page, including the 3D lidar activity recognition and transfer learning projects.",
       "Publicly released as a shared resource for the human-robot interaction and activity recognition research community.",
+    ],
+  },
+  {
+    title: "Privacy-Preserving Activity Recognition for Human-Robot Interaction",
+    image: "/projects/lidar-har-hri.png",
+    github: "https://github.com/Adelbaseli",
+    techniques: ["Time Series Analysis"],
+    domains: ["Human-Robot Interaction", "Multimodal Sensing"],
+    description: [
+      "A multimodal deep-learning system that lets a care robot recognize what a person is doing around it, from handing over an object to commanding it with gestures.",
+      "Combines 3D Lidar with a wrist-worn wearable and the robot's force/torque sensors, so no cameras or personally identifiable data are needed.",
+      "Reaches 80%+ recognition accuracy across 9 activities by fusing all three sensors, using CNN, LSTM, Seq2Seq, and PointNet++ models.",
+    ],
+    details: [
+      "Designed separate deep-learning models per sensor: a ConvLSTM network for the wearable and force/torque time-series data, and a PointNet++ network for the 3D Lidar point clouds.",
+      "Explored two ways to merge the sensors: combining raw data early (data-level fusion) versus combining each model's learned features (feature-level fusion) through a Seq2Seq mechanism for the Lidar stream.",
+      "Trained and evaluated the models on 9 real human-robot interaction activities, e.g. giving an object, holding the robot's hand while walking, stopping it, commanding it to rotate, captured on a TIAGo robot.",
+      "Feature-level fusion of all three sensors was the clear winner, reaching 80.73% accuracy, well above any single sensor or a two-sensor combination.",
+      "Every sensor was chosen specifically for being privacy-preserving, so the system understands user activity without capturing faces, video, or other identifiable data, which matters for home and healthcare settings.",
+      "Trained large point-cloud models efficiently despite heavy compute demands, by extracting only the relevant, moving regions of each Lidar scan.",
     ],
   },
   {
@@ -474,15 +474,15 @@ export const projects = [
     techniques: ["Audio & Speech"],
     domains: ["Audio"],
     description: [
-      "Building a frame-level voice activity detection system, starting audio-only and designed to extend toward audio-visual fusion for robustness in noisy, multi-speaker rooms.",
+      "Building a frame-level voice activity detection system; audio-only at this stage, with audio-visual fusion (lip motion) planned as a future extension.",
       "Trained a log-mel CRNN on the GRID corpus and benchmarked it against a classic energy/zero-crossing-rate DSP baseline.",
-      "Exported the model to ONNX for a real-time, microphone-driven browser demo using onnxruntime-web.",
+      "A real-time browser demo and ONNX export are planned next steps, not yet built.",
     ],
     details: [
-      "Checkpoint 1: trained a log-mel CRNN for offline voice activity detection on the GRID audio-visual speech corpus, training on one speaker and validating on a held-out speaker.",
+      "Current stage: trained a log-mel CRNN for offline voice activity detection on the GRID audio-visual speech corpus, training on one speaker and validating on a held-out speaker.",
       "Compared the CRNN against a classic energy/zero-crossing-rate (ZCR) digital-signal-processing baseline to quantify the benefit of the learned model.",
-      "Checkpoint 2: exported the trained model to ONNX and built a real-time browser demo that runs voice activity detection directly on microphone input via onnxruntime-web.",
-      "Currently audio-only; a planned lip-fusion extension would add MediaPipe Face Landmarker lip-motion tracking as a second input stream for added robustness in noisy, multi-speaker settings.",
+      "Planned next: export the trained model to ONNX and build a real-time browser demo that runs voice activity detection directly on microphone input via onnxruntime-web.",
+      "Planned after that: a lip-fusion extension adding MediaPipe Face Landmarker lip-motion tracking as a second input stream for added robustness in noisy, multi-speaker settings.",
     ],
   },
   {

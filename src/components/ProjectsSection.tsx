@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { projects, techniqueCategories } from "@/lib/data";
 import { CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Eye, Github, X } from "lucide-react";
+import { Eye, ExternalLink, X } from "lucide-react";
 import { GlassCard } from "./ui/glass-card";
 import MotionWrapper from "./MotionWrapper";
 import { AnimatePresence, motion } from "framer-motion";
@@ -23,7 +23,8 @@ export default function ProjectsSection() {
   };
 
   const rank = (project: Project) =>
-    project.title.includes("(Ongoing)")
+    project.title.includes("(Ongoing)") &&
+    project.techniques?.includes("Audio & Speech")
       ? 2
       : project.techniques?.includes("Reinforcement Learning")
         ? 1
@@ -195,8 +196,8 @@ export default function ProjectsSection() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-sm text-muted-foreground hover:text-indigo-500 transition-colors mt-6"
                   >
-                    <Github className="h-4 w-4 mr-2" />
-                    View on GitHub 🔗
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View More
                   </a>
                 )}
               </div>
