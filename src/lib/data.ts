@@ -141,7 +141,7 @@ export const projects = [
   {
     title: "PriMA-Care: Privacy-Preserving Multimodal Dataset for Care Robots",
     image: "/projects/prima-care-dataset.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://dl.acm.org/doi/abs/10.1145/3610978.3640701",
     techniques: ["Computer Vision"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
@@ -161,7 +161,7 @@ export const projects = [
   {
     title: "Privacy-Preserving Activity Recognition for Human-Robot Interaction",
     image: "/projects/lidar-har-hri.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/11369549",
     techniques: ["Time Series Analysis"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
@@ -181,7 +181,7 @@ export const projects = [
   {
     title: "Transfer Learning for Privacy-Preserving Activity Recognition",
     image: "/projects/multimodal-transfer-learning.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/11217600/",
     techniques: ["Computer Vision"],
     domains: ["Human Activity Recognition", "Multimodal Sensing"],
     description: [
@@ -201,7 +201,7 @@ export const projects = [
   {
     title: "Wi-Fi-Based Sleep Posture Monitoring",
     image: "/projects/wifi-sleep-posture.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/11369717/",
     techniques: ["Time Series Analysis"],
     domains: ["Human Activity Recognition", "Multimodal Sensing"],
     description: [
@@ -221,7 +221,7 @@ export const projects = [
   {
     title: "Predicting User Movement for Safer Human-Robot Interaction",
     image: "/projects/pose-prediction-hri.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/10260298",
     techniques: ["Computer Vision"],
     domains: ["Human-Robot Interaction", "Multimodal Sensing"],
     description: [
@@ -241,7 +241,7 @@ export const projects = [
   {
     title: "Can Machine Learning Distinguish Elite from Non-Elite Rowers?",
     image: "/projects/rowing-skill-classification.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://reference-global.com/download/article/10.2478/ijcss-2025-0007.pdf",
     techniques: ["Time Series Analysis"],
     domains: ["Sports Science", "Human Activity Recognition"],
     description: [
@@ -261,7 +261,7 @@ export const projects = [
   {
     title: "Reinforcement-Learning-Tuned Model Predictive Control for Robot Manipulators",
     image: "/projects/mpc-rl-manipulator-obstacle-avoidance.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/9945504",
     techniques: ["Reinforcement Learning"],
     domains: ["Robotics & Control"],
     description: [
@@ -280,7 +280,7 @@ export const projects = [
   {
     title: "Privacy vs. Utility Trade-offs Across Vision-Based Sensors for Care Robots",
     image: "/projects/vision-sensor-privacy-utility-tradeoff.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/10731223",
     techniques: ["Computer Vision"],
     domains: ["Human-Robot Interaction", "Psychology"],
     description: [
@@ -299,7 +299,7 @@ export const projects = [
   {
     title: "Does Matching a Robot's Approach Speed to Yours Make It Feel Warmer?",
     image: "/projects/robot-approach-velocity-perception.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/10557976",
     techniques: ["Computer Vision"],
     domains: ["Human-Robot Interaction", "Psychology"],
     description: [
@@ -318,7 +318,7 @@ export const projects = [
   {
     title: "How Age Changes What Robot Approach Speed Feels Comfortable",
     image: "/projects/noisy-velocity-matching-age-diversity.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://dl.acm.org/doi/abs/10.1145/3610978.3640546",
     techniques: ["Computer Vision"],
     domains: ["Human-Robot Interaction", "Psychology"],
     description: [
@@ -337,7 +337,7 @@ export const projects = [
   {
     title: "Real-Time Self-Tuning Neuro-Fuzzy Control for Robot Manipulators",
     image: "/projects/neuro-fuzzy-control-manipulator.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/9646224",
     techniques: ["Reinforcement Learning"],
     domains: ["Robotics & Control"],
     description: [
@@ -356,7 +356,7 @@ export const projects = [
   {
     title: "Dual Process Dreamer: Combining Fast and Slow Thinking for Agent Decision-Making",
     image: "/projects/dual-process-dreamer.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://www.scitepress.org/Papers/2026/142432/142432.pdf",
     techniques: ["Reinforcement Learning"],
     domains: ["Robotics & Control"],
     description: [
@@ -375,7 +375,7 @@ export const projects = [
   {
     title: "Wrist-Worn Gesture Recognition for Camera-Free Robot Commands",
     image: "/projects/wrist-imu-gesture-recognition.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/11396715",
     techniques: ["Time Series Analysis"],
     domains: ["Human Activity Recognition"],
     description: [
@@ -394,7 +394,7 @@ export const projects = [
   {
     title: "Online Deep RL for Real-Time NMPC Tuning in Collision-Free Robot Manipulation",
     image: "/projects/drl-nmpc-collision-free-manipulation.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/10927488",
     techniques: ["Reinforcement Learning"],
     domains: ["Robotics & Control"],
     description: [
@@ -413,7 +413,7 @@ export const projects = [
   {
     title: "Adaptive Tidying Robots: Learning from Interaction and Observation",
     image: "/projects/adaptive-tidying-robots.png",
-    github: "https://github.com/Adelbaseli",
+    github: "https://ieeexplore.ieee.org/abstract/document/10871003",
     techniques: ["AI Agents & LLMs"],
     domains: ["Human-Robot Interaction"],
     description: [
@@ -451,7 +451,7 @@ export const projects = [
   {
     title: "Multimodal AI-Based Drumming Sound Generation (Ongoing)",
     image: "/projects/in-progress.webp",
-    github: "https://github.com/Adelbaseli",
+    github: "https://www.mn.uio.no/ifi/studier/masteroppgaver/robin/air-drum.html",
     techniques: ["Audio & Speech"],
     domains: ["Audio", "Multimodal Sensing"],
     description: [
@@ -475,12 +475,11 @@ export const projects = [
     domains: ["Audio"],
     description: [
       "Building a frame-level voice activity detection system; audio-only at this stage, with audio-visual fusion (lip motion) planned as a future extension.",
-      "Trained a log-mel CRNN on the GRID corpus and benchmarked it against a classic energy/zero-crossing-rate DSP baseline.",
+      "Developed and evaluated a log-mel CRNN model for voice activity detection on the GRID corpus.",
       "A real-time browser demo and ONNX export are planned next steps, not yet built.",
     ],
     details: [
-      "Current stage: trained a log-mel CRNN for offline voice activity detection on the GRID audio-visual speech corpus, training on one speaker and validating on a held-out speaker.",
-      "Compared the CRNN against a classic energy/zero-crossing-rate (ZCR) digital-signal-processing baseline to quantify the benefit of the learned model.",
+      "Current stage: developed and evaluated a log-mel CRNN for offline voice activity detection on the GRID audio-visual speech corpus, training on one speaker and validating on a held-out speaker.",
       "Planned next: export the trained model to ONNX and build a real-time browser demo that runs voice activity detection directly on microphone input via onnxruntime-web.",
       "Planned after that: a lip-fusion extension adding MediaPipe Face Landmarker lip-motion tracking as a second input stream for added robustness in noisy, multi-speaker settings.",
     ],

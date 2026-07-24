@@ -170,18 +170,6 @@ export default function ProjectsSection() {
                     <X className="h-5 w-5" />
                   </button>
                 </div>
-                {activeProject.domains && activeProject.domains.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {activeProject.domains.map((domain) => (
-                      <span
-                        key={domain}
-                        className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground border border-border/50"
-                      >
-                        {domain}
-                      </span>
-                    ))}
-                  </div>
-                )}
                 <ul className="list-disc ml-4 space-y-2 text-sm text-muted-foreground">
                   {(activeProject.details ?? activeProject.description).map(
                     (desc, i) => (
