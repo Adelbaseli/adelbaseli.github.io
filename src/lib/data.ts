@@ -408,6 +408,81 @@ export const projects = [
       "Achieved a 39% improvement in successful collision-free path planning, a 53% reduction in setpoint control error, and 30% faster path planning versus the expert-tuned baseline.",
     ],
   },
+  {
+    title: "Adaptive Tidying Robots: Learning from Interaction and Observation",
+    image: "/projects/adaptive-tidying-robots.png",
+    github: "https://github.com/Adelbaseli",
+    techniques: ["AI Agents & LLMs"],
+    domains: ["Human-Robot Interaction"],
+    description: [
+      "Built a software framework that combines large language models and vision-language models so a service robot can learn a person's own tidying-up preferences instead of following one fixed rule set.",
+      "Enabled open-vocabulary object and receptacle recognition via VLMs, so the robot can handle objects it has never seen before.",
+      "Reached 87.4% accuracy selecting the correct receptacle for unseen objects on a text-based benchmark, and validated the full pipeline in simulation.",
+    ],
+    details: [
+      "Combined an LLM for learning and reasoning about tidying-up rules with VLMs for open-vocabulary object/receptacle detection, replacing the fixed object-label training of prior tidying-up robots.",
+      "Learns household-specific tidying preferences through interaction and observation (via HRI), rather than assuming one universal rule set applies to every home.",
+      "Evaluated in two stages: a text-based benchmark isolating rule-learning accuracy, and a simulated environment testing full end-to-end tidying performance.",
+      "Reached 87.4% accuracy picking the correct receptacle for previously unseen objects, including receptacle categories the system had never encountered.",
+      "Contributed to the system design and evaluation as part of a multi-institution collaboration between the University of Oslo and Kyushu University.",
+    ],
+  },
+  {
+    title: "Multi-Speaker Speech Detection and Localization (Ongoing)",
+    image: "/projects/in-progress.webp",
+    github: "https://github.com/Adelbaseli",
+    techniques: ["Audio & Speech"],
+    domains: ["Audio"],
+    description: [
+      "Ongoing project developing a multi-head encoder-decoder deep learning architecture to detect, identify, and localize multiple simultaneous speakers in noisy acoustic environments.",
+      "Investigating time-domain audio features and simulated room acoustics to study how well models trained on simulated audio transfer to real recordings.",
+      "Aims to unify speech detection, speaker tracking, and speaker localization in one multi-task model rather than separate pipelines.",
+    ],
+    details: [
+      "Targets the classic \"cocktail party problem\": detecting, identifying, tracking, and localizing multiple speakers at once in a noisy, dynamic acoustic scene.",
+      "Designing a multi-task, multi-head encoder-decoder architecture so a single shared representation can support speech detection, speaker ID/tracking, and localization simultaneously.",
+      "Exploring time-domain audio features as an alternative to standard frequency-domain features (MFCCs, STFT) for these tasks.",
+      "Using simulated room acoustics (image-source, ray tracing, and wave-equation methods) to generate training data, and studying how well models generalize from simulation to reality.",
+      "Motivated by human-robot interaction, where reliable speaker detection and localization is a key part of a robot's acoustic perception of its surroundings.",
+    ],
+  },
+  {
+    title: "Multimodal AI-Based Drumming Sound Generation (Ongoing)",
+    image: "/projects/in-progress.webp",
+    github: "https://github.com/Adelbaseli",
+    techniques: ["Audio & Speech"],
+    domains: ["Audio", "Multimodal Sensing"],
+    description: [
+      "Ongoing project building an AI-based multimodal drumming simulator that generates realistic drum sounds from motion, muscle activity, and gaze data.",
+      "Designing a data collection protocol at RITMO combining motion capture, EMG, gaze tracking, video, and synchronized audio/MIDI recordings of real drumming.",
+      "Will compare early, feature-level, and late fusion strategies to see which combination of sensing modalities produces the most expressive, realistic generated sound.",
+    ],
+    details: [
+      "Aims to map human drumming gestures (arm, wrist, and stick movement, striking location, speed, and intensity) to realistic synthesized drum sounds.",
+      "Designing a multimodal dataset combining motion capture, EMG muscle-activity sensors, gaze tracking, video, and synchronized audio/MIDI recordings.",
+      "Plans to train deep learning models (CNNs, RNNs/LSTMs, Transformers, or hybrids) that predict MIDI parameters from the combined sensor streams.",
+      "Will compare data-level, feature-level, and decision-level fusion strategies to identify which modality combinations most improve generated-sound accuracy and expressivity.",
+      "Being developed at the RITMO Centre for Interdisciplinary Studies in Rhythm, Time and Motion, University of Oslo.",
+    ],
+  },
+  {
+    title: "Audio-Visual Voice Activity Detection",
+    image: "/projects/audio-visual-vad.webp",
+    github: "https://github.com/Adelbaseli/audio-visual-vad",
+    techniques: ["Audio & Speech"],
+    domains: ["Audio"],
+    description: [
+      "Building a frame-level voice activity detection system, starting audio-only and designed to extend toward audio-visual fusion for robustness in noisy, multi-speaker rooms.",
+      "Trained a log-mel CRNN on the GRID corpus and benchmarked it against a classic energy/zero-crossing-rate DSP baseline.",
+      "Exported the model to ONNX for a real-time, microphone-driven browser demo using onnxruntime-web.",
+    ],
+    details: [
+      "Checkpoint 1: trained a log-mel CRNN for offline voice activity detection on the GRID audio-visual speech corpus, training on one speaker and validating on a held-out speaker.",
+      "Compared the CRNN against a classic energy/zero-crossing-rate (ZCR) digital-signal-processing baseline to quantify the benefit of the learned model.",
+      "Checkpoint 2: exported the trained model to ONNX and built a real-time browser demo that runs voice activity detection directly on microphone input via onnxruntime-web.",
+      "Currently audio-only; a planned lip-fusion extension would add MediaPipe Face Landmarker lip-motion tracking as a second input stream for added robustness in noisy, multi-speaker settings.",
+    ],
+  },
 ];
 
 export const awards = [
