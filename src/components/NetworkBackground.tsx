@@ -8,17 +8,16 @@ interface Node {
   vy: number;
 }
 
-// Density-based rather than a fixed count: this canvas spans Hero + Experience
-// + Skills combined, which is much taller than one viewport, so a fixed count
-// would look sparse. ~1 node per 8,000px^2 gives a dense, interconnected mesh
-// rather than a sparse "stars in the sky" look; clamp so very tall/short pages
-// stay reasonable.
+// Density-based rather than a fixed count, so it still looks right at
+// whatever height the Hero section ends up being. ~1 node per 8,000px^2
+// gives a dense, interconnected mesh rather than a sparse "stars in the
+// sky" look; clamp so very tall/short viewports stay reasonable.
 const AREA_PER_NODE = 8000;
 const MIN_NODES = 70;
 const MAX_NODES = 380;
 const LINK_DISTANCE = 190;
-const DARK_COLOR = "205, 210, 222"; // soft light grey, dimmer than pure white
-const LIGHT_COLOR = "15, 23, 42"; // slate-900, reads against the light theme
+const NODE_COLOR = "99, 102, 241"; // indigo-500
+const LINK_COLOR = "34, 211, 238"; // cyan-400
 
 export default function NetworkBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,7 +25,6 @@ export default function NetworkBackground() {
   const nodesRef = useRef<Node[]>([]);
   const sizeRef = useRef({ width: 0, height: 0 });
   const rafRef = useRef<number | null>(null);
-  const colorRef = useRef(DARK_COLOR);
   const isInView = useInView(containerRef, { margin: "200px 0px" });
 
   // One-time setup: size the canvas, seed the nodes, keep them in sync on resize.
@@ -74,22 +72,6 @@ export default function NetworkBackground() {
     return () => resizeObserver.disconnect();
   }, []);
 
-  // Track light/dark theme so the network stays visible in either.
-  useEffect(() => {
-    const updateColor = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      colorRef.current = isDark ? DARK_COLOR : LIGHT_COLOR;
-    };
-    updateColor();
-
-    const observer = new MutationObserver(updateColor);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, []);
-
   // Drive the animation loop, paused whenever the section is off-screen.
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -104,7 +86,6 @@ export default function NetworkBackground() {
       const { width, height } = sizeRef.current;
       const nodes = nodesRef.current;
       const n = nodes.length;
-      const color = colorRef.current;
       ctx.clearRect(0, 0, width, height);
 
       for (const node of nodes) {
@@ -157,7 +138,7 @@ export default function NetworkBackground() {
           updateNearest(j, i, dist);
 
           if (dist < LINK_DISTANCE) {
-            ctx.strokeStyle = `rgba(${color}, ${0.15 * (1 - dist / LINK_DISTANCE)})`;
+            ctx.strokeStyle = `rgba(${LINK_COLOR}, ${0.18 * (1 - dist / LINK_DISTANCE)})`;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -173,7 +154,7 @@ export default function NetworkBackground() {
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist >= LINK_DISTANCE) {
-            ctx.strokeStyle = `rgba(${color}, 0.16)`;
+            ctx.strokeStyle = `rgba(${LINK_COLOR}, 0.14)`;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -183,7 +164,7 @@ export default function NetworkBackground() {
       }
 
       for (const node of nodes) {
-        ctx.fillStyle = `rgba(${color}, 0.55)`;
+        ctx.fillStyle = `rgba(${NODE_COLOR}, 0.45)`;
         ctx.beginPath();
         ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
         ctx.fill();

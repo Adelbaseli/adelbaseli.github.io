@@ -2,6 +2,7 @@ import { personalInfo } from "@/lib/data";
 import { Mail, Github, MapPin, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import MotionWrapper from "./MotionWrapper";
+import NetworkBackground from "./NetworkBackground";
 
 export default function HeroSection() {
   const containerVariants = {
@@ -28,6 +29,7 @@ export default function HeroSection() {
 
   return (
     <section className="min-h-screen flex flex-col justify-center py-16 md:py-24 relative overflow-hidden">
+      <NetworkBackground />
       <div className="container max-w-[1344px] mx-auto px-6 md:px-4 relative z-10">
         <motion.div
           className="flex flex-col md:flex-row md:items-center justify-between mb-8"
