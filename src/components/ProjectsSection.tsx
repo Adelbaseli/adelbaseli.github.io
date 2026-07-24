@@ -66,9 +66,9 @@ export default function ProjectsSection() {
           muted
           loop
           playsInline
-          className="h-full w-full object-cover opacity-40 blur-sm grayscale brightness-75"
+          className="h-full w-full object-cover blur-sm grayscale"
         />
-        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
       <div className="container max-w-[1344px] mx-auto px-6 md:px-4">
         <MotionWrapper>
