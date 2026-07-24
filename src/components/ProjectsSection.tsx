@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { projects, techniqueCategories } from "@/lib/data";
 import { categoryMeta } from "@/lib/category-meta";
 import {
@@ -53,6 +53,13 @@ export default function ProjectsSection() {
     setHoveredCategory(null);
     setHoverAnchor(null);
   };
+
+  useEffect(() => {
+    if (!hoveredCategory) return;
+    const dismiss = () => handleTileLeave();
+    window.addEventListener("scroll", dismiss, { passive: true });
+    return () => window.removeEventListener("scroll", dismiss);
+  }, [hoveredCategory]);
 
   const availableCategories = techniqueCategories.filter((category) =>
     projects.some((project) => project.techniques?.includes(category))

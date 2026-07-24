@@ -78,7 +78,7 @@ export default function CategoryHoverPreview({
           strokeLinejoin="round"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0, transition: { duration: 0.15 } }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         />
         <motion.path
@@ -89,7 +89,7 @@ export default function CategoryHoverPreview({
           strokeLinejoin="round"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0, transition: { duration: 0.15 } }}
           transition={{ delay: 0.42, duration: 0.18 }}
         />
       </svg>
