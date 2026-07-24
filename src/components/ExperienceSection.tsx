@@ -33,6 +33,7 @@ export default function ExperienceSection() {
               date={`📅 ${job.period}`}
               isLast={index === workExperience.length - 1}
               index={index}
+              tags={job.tags}
             >
               <ul className="list-disc ml-4 mt-2 space-y-2 text-sm">
                 {job.achievements.map((achievement, i) => (

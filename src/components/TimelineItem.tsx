@@ -8,6 +8,7 @@ interface TimelineItemProps {
   date: string;
   isLast?: boolean;
   index?: number;
+  tags?: string[];
   children?: React.ReactNode;
 }
 
@@ -17,11 +18,12 @@ export default function TimelineItem({
   date,
   isLast = false,
   index = 0,
+  tags,
   children,
 }: TimelineItemProps) {
   return (
     <motion.div
-      className="relative flex gap-6"
+      className="group relative flex gap-6"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -29,7 +31,7 @@ export default function TimelineItem({
     >
       <div className="flex flex-col items-center">
         <motion.div
-          className="flex h-[18px] w-[18px] rounded-full border border-indigo-500/50 bg-background dark:bg-muted z-10"
+          className="flex h-[18px] w-[18px] rounded-full border border-indigo-500/50 bg-background dark:bg-muted z-10 transition-colors duration-300 group-hover:border-indigo-500 group-hover:bg-indigo-500/20"
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           transition={{
@@ -52,7 +54,7 @@ export default function TimelineItem({
       </div>
       <div className={cn("pb-8 flex-1", isLast ? "pb-0" : "")}>
         <motion.div
-          className="flex flex-col gap-0.5 rounded-lg border border-border/40 p-4 transition-colors duration-700 ease-in-out hover:border-indigo-500/60"
+          className="flex flex-col gap-0.5 rounded-lg border border-border/40 p-4 transition-colors duration-300 group-hover:border-indigo-500/60 group-hover:bg-indigo-500/5"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
@@ -62,6 +64,18 @@ export default function TimelineItem({
           <p className="text-sm text-muted-foreground">{subtitle}</p>
           <p className="text-xs text-muted-foreground/70 mb-2">{date}</p>
           {children}
+          {tags && tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mt-3">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground border border-border/50"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </motion.div>
       </div>
     </motion.div>

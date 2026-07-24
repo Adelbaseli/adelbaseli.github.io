@@ -16,12 +16,11 @@ export const workExperience = [
     position: "Applied ML Engineer & AI Researcher",
     period: "2024 - Present",
     achievements: [
-      "Build deep learning models across vision, audio, and time-series data to support research in psychology, sports science, and healthcare.",
-      "Develop audio ML pipelines for speaker detection, noise removal, and signal analysis.",
+      "Build deep learning models across vision, audio, and time-series data for psychology, sports science, and healthcare applications.",
       "Apply vision-language and large language models to improve robot perception and context-aware navigation in shared human environments.",
-      "Build agentic AI workflows with LangGraph and LangChain for automated reasoning and task execution.",
-      "Design statistical analysis pipelines, including hypothesis testing and A/B testing, and advise researchers across disciplines on applying ML methods.",
+      "Design statistical analysis pipelines, including hypothesis testing and A/B testing, and provide AI/ML consulting across interdisciplinary projects.",
     ],
+    tags: ["ML/AI", "LLM/VLM", "Computer Vision"],
   },
   {
     company: "University of Oslo (UiO)",
@@ -34,6 +33,7 @@ export const workExperience = [
       "Developed reinforcement learning approaches for adaptive decision-making and robot control.",
       "Delivered end-to-end ML pipelines, from data collection through training to real-world evaluation and user studies.",
     ],
+    tags: ["Multimodal DL", "ML/AI", "Computer Vision", "RL"],
   },
   {
     company: "Sharif Technology Services Complex",
@@ -43,8 +43,9 @@ export const workExperience = [
     achievements: [
       "Implemented software-, processor-, and hardware-in-the-loop (SIL/PIL/HIL) test environments for control systems.",
       "Applied sensor and data fusion techniques (EKF, UKF) for dynamic systems analysis.",
-      "Developed ML, DL, and RL algorithms to support control system design and validation.",
+      "Developed RL algorithms to support control system design and validation.",
     ],
+    tags: ["Sensor Fusion", "SIL", "PIL", "HIL"],
   },
   {
     company: "Djavad Mowafaghian Center for Intelligent NeuroRehabilitation Technologies",
@@ -56,6 +57,7 @@ export const workExperience = [
       "Integrated sensors, actuators, and embedded hardware into real-time robotic prototypes.",
       "Implemented real-time controllers in MATLAB/Simulink and xPC Target for human-interactive robotic platforms.",
     ],
+    tags: ["Robotics", "Control"],
   },
 ];
 
@@ -415,6 +417,25 @@ export const projects = [
     ],
   },
   {
+    title: "AI-Based Movement-Type Classification Using 2D Lidar Data",
+    image: "/projects/lidar-movement-classification.png",
+    github: "https://github.com/Adelbaseli",
+    techniques: ["Time Series Analysis", "Computer Vision"],
+    domains: ["Human Activity Recognition", "Human-Robot Interaction"],
+    description: [
+      "A student project built on the PriMA-Care dataset I collected, classifying five movement types (walking, running, abnormal gait, walker use, wheelchair use) from privacy-preserving 2D Lidar data.",
+      "Evaluated CNN, CNN-LSTM, CNN-GRU, and VGG16 transfer-learning architectures on ankle-height Lidar scans.",
+      "The best CNN model reached 91% accuracy on held-out test subjects, with lighter CNN+GRU/CNN+LSTM variants offering a strong accuracy/speed trade-off.",
+    ],
+    details: [
+      "Uses the PriMA-Care dataset (collected on a TIAGo robot with an ankle-height 2D Lidar) to classify five movement types: normal walking, running, abnormal walking, walker use, and wheelchair use.",
+      "Compared multiple deep learning architectures, CNNs, CNN-LSTM and CNN-GRU hybrids, and VGG16 transfer learning, to study the trade-off between raw-signal modeling and image-based feature extraction.",
+      "Evaluated with subject-level 6-fold cross-validation on 12 participants plus 2 fully held-out test subjects, to test generalization to unseen users.",
+      "The best CNN model, capturing spatio-temporal features directly from raw Lidar scans, reached 91% accuracy on the held-out subjects.",
+      "Demonstrates a further real-world use of the PriMA-Care dataset for privacy-preserving human activity recognition in care robotics.",
+    ],
+  },
+  {
     title: "Adaptive Tidying Robots: Learning from Interaction and Observation",
     image: "/projects/adaptive-tidying-robots.png",
     github: "https://ieeexplore.ieee.org/abstract/document/10871003",
@@ -505,6 +526,25 @@ export const projects = [
       "An LLM, guided by a fuzzy-logic layer, interprets the combined risk/trajectory information and adjusts the MPC's setpoint and collision cost-function weights, generates new waypoints, and can trigger a verbal safety alert when risk is high.",
       "Targets human-aware navigation: keeping a mobile robot's path efficient in open corridors while dynamically becoming more cautious as people get close.",
       "In parallel, developing an agentic AI system using LangChain to orchestrate the perception-to-control pipeline; both the navigation framework and the agentic wrapper are still ongoing work.",
+    ],
+  },
+  {
+    title: "Using Robotic Mechanical Perturbations for Enhanced Balance Assessment",
+    image: "/projects/sbara-balance-assessment.png",
+    github: "https://iopscience.iop.org/article/10.1016/j.medengphy.2020.07.006/pdf",
+    techniques: ["Reinforcement Learning"],
+    domains: ["Robotics & Control"],
+    description: [
+      "Designed and built a robotic balance-assessment platform (SBARA) that applies controlled, repeatable mechanical perturbations to a standing user in two directions.",
+      "Combined dual servo actuators, force sensors for center-of-pressure measurement, and real-time visual feedback to create a controllable dynamic posturography device.",
+      "Showed in a 10-subject study that adding mechanical perturbations significantly increased the sensitivity of balance-performance indices, especially in the anterior-posterior direction.",
+    ],
+    details: [
+      "Developed a two-actuator rotating platform (mediolateral and anterior-posterior) using servo motors, planetary gears, and a spatial four-bar transmission mechanism, plus a full kinematic model relating motor angles to platform rotation.",
+      "Instrumented the platform with four single-axis strain-gauge force sensors to compute the user's center of pressure (CoP) in real time, with a monitor providing visual CoP feedback.",
+      "Characterized the device's dynamics experimentally, achieving a 0.19 s time constant and 0.85 Hz bandwidth in both rotation axes.",
+      "Ran a controlled experiment with 10 healthy subjects performing a balance task with and without mechanical perturbations, measuring 7 center-of-pressure indices.",
+      "Found that mechanical perturbations significantly increased the sensitivity of nearly all balance indices to the subject's performance, most notably in the anterior-posterior direction.",
     ],
   },
 ];
