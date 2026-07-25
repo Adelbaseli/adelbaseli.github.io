@@ -6,6 +6,7 @@ import {
   SiPytorch,
   SiTensorflow,
   SiScikitlearn,
+  SiOnnx,
   SiFastapi,
   SiNumpy,
   SiPandas,
@@ -60,6 +61,7 @@ export const skillMeta: Record<string, SkillMeta> = {
   TensorFlow: { icon: SiTensorflow, color: "#FF6F00" },
   "Scikit-learn": { icon: SiScikitlearn, color: "#F7931E" },
   XGBoost: { icon: TreePine, color: "#16A34A" },
+  ONNX: { icon: SiOnnx, color: "#005CED" },
 
   NumPy: { icon: SiNumpy, color: "#4DABCF" },
   Pandas: { icon: SiPandas, color: "#8250DF" },

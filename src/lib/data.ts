@@ -95,7 +95,7 @@ export const skills = {
     "Time-Series Analysis",
     "LLMs / VLMs",
   ],
-  mlFrameworks: ["PyTorch", "TensorFlow", "Scikit-learn", "XGBoost"],
+  mlFrameworks: ["PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "ONNX"],
   dataAndStorage: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "PostgreSQL"],
   devOpsAndTools: [
     "Docker",
