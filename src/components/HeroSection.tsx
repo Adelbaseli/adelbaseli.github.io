@@ -50,7 +50,7 @@ export default function HeroSection() {
               className="text-2xl md:text-3xl text-muted-foreground mb-6"
               variants={childVariants}
             >
-              Applied AI & ML Engineer
+              ML Engineer
             </motion.p>
 
             <motion.div

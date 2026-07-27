@@ -13,7 +13,7 @@ export const workExperience = [
   {
     company: "RITMO Centre",
     location: "Oslo, Norway",
-    position: "ML Engineer",
+    position: "Applied ML Engineer & AI Researcher",
     period: "2024 - Present",
     achievements: [
       "Build deep learning models across vision, audio, and time-series data for psychology, sports science, and healthcare applications.",
